@@ -1,0 +1,62 @@
+{
+  "name": "meta-llama-3",
+  "display_name": "Meta Llama 3",
+  "description": "Llama 3 is a family of large language models (LLMs) from Meta, designed for a wide array of applications and demonstrating state-of-the-art performance on various industry benchmarks.",
+  "source": "Hugging Face",
+  "variants": {
+    "8b": {
+      "display_name": "meta-llama-3-8b",
+      "parameters": "8B",
+      "type": "Base",
+      "model_id": "meta-llama/Meta-Llama-3-8B",
+      "quantization": "FP16",
+      "disk_space": "16 GB",
+      "gpu_memory": "16 GB"
+    },
+    "8b-instruct": {
+      "display_name": "meta-llama-3-8b-instruct",
+      "parameters": "8B",
+      "type": "Instruction-Tuned",
+      "model_id": "meta-llama/Meta-Llama-3-8B-Instruct",
+      "quantization": "FP16",
+      "disk_space": "16 GB",
+      "gpu_memory": "16 GB"
+    },
+    "8b-instruct-4bit": {
+      "display_name": "meta-llama-3-8b-instruct-4bit",
+      "parameters": "8B",
+      "type": "Instruction-Tuned",
+      "model_id": "meta-llama/Meta-Llama-3-8B-Instruct",
+      "quantization": "4-bit",
+      "disk_space": "4-6 GB",
+      "gpu_memory": "4-6 GB"
+    },
+    "70b": {
+      "display_name": "meta-llama-3-70b",
+      "parameters": "70B",
+      "type": "Base",
+      "model_id": "meta-llama/Meta-Llama-3-70B",
+      "quantization": "FP16",
+      "disk_space": "140 GB",
+      "gpu_memory": "140 GB"
+    },
+    "70b-instruct": {
+      "display_name": "meta-llama-3-70b-instruct",
+      "parameters": "70B",
+      "type": "Instruction-Tuned",
+      "model_id": "meta-llama/Meta-Llama-3-70B-Instruct",
+      "quantization": "FP16",
+      "disk_space": "140 GB",
+      "gpu_memory": "140 GB"
+    },
+    "70b-instruct-4bit": {
+      "display_name": "meta-llama-3-70b-instruct-4bit",
+      "parameters": "70B",
+      "type": "Instruction-Tuned",
+      "model_id": "meta-llama/Meta-Llama-3-70B-Instruct",
+      "quantization": "4-bit",
+      "disk_space": "35-40 GB",
+      "gpu_memory": "35-40 GB"
+    }
+  }
+}

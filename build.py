@@ -35,6 +35,16 @@ for filename in os.listdir(MODEL_CONFIGS_DIR):
         with open(os.path.join(MODEL_CONFIGS_DIR, filename), 'r') as f:
             model_data = json.load(f)
             model_data['path'] = f"/models/{model_data['name']}.html"
+            
+            # Process variants from dictionary
+            variants = []
+            if 'variants' in model_data and isinstance(model_data['variants'], dict):
+                for variant_name, variant_details in model_data['variants'].items():
+                    variant_details['name'] = variant_name
+                    variant_details['pull_command'] = f"homl pull {model_data['name']}:{variant_name}"
+                    variants.append(variant_details)
+            
+            model_data['variants'] = variants
             models.append(model_data)
 
 # 5. Render model pages

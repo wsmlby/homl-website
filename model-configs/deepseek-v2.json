@@ -1,0 +1,62 @@
+{
+  "name": "deepseek-v2",
+  "display_name": "DeepSeek V2",
+  "description": "DeepSeek V2 is a powerful open-source Mixture-of-Experts (MoE) language model from DeepSeek AI. It has 236 billion total parameters, with 21 billion activated for each token, enabling strong performance while maintaining efficiency.",
+  "source": "Hugging Face",
+  "variants": {
+    "base": {
+      "display_name": "deepseek-v2",
+      "parameters": "236B",
+      "type": "Base",
+      "model_id": "deepseek-ai/DeepSeek-V2",
+      "quantization": "FP16",
+      "disk_space": "472 GB",
+      "gpu_memory": "543 GB"
+    },
+    "chat": {
+      "display_name": "deepseek-v2-chat",
+      "parameters": "236B",
+      "type": "Chat",
+      "model_id": "deepseek-ai/DeepSeek-V2-Chat",
+      "quantization": "FP16",
+      "disk_space": "472 GB",
+      "gpu_memory": "543 GB"
+    },
+    "chat-4bit": {
+      "display_name": "deepseek-v2-chat-4bit",
+      "parameters": "236B",
+      "type": "Chat",
+      "model_id": "deepseek-ai/DeepSeek-V2-Chat",
+      "quantization": "4-bit",
+      "disk_space": "142 GB",
+      "gpu_memory": "136 GB"
+    },
+    "lite-base": {
+      "display_name": "deepseek-v2-lite-base",
+      "parameters": "16B",
+      "type": "Base",
+      "model_id": "deepseek-ai/DeepSeek-V2-Lite-Base",
+      "quantization": "BF16",
+      "disk_space": "32 GB",
+      "gpu_memory": "32 GB"
+    },
+    "lite-chat": {
+      "display_name": "deepseek-v2-lite-chat",
+      "parameters": "16B",
+      "type": "Chat",
+      "model_id": "deepseek-ai/DeepSeek-V2-Lite-Chat",
+      "quantization": "BF16",
+      "disk_space": "32 GB",
+      "gpu_memory": "32 GB"
+    },
+    "lite-chat-4bit": {
+      "display_name": "deepseek-v2-lite-chat-4bit",
+      "parameters": "16B",
+      "type": "Chat",
+      "model_id": "deepseek-ai/DeepSeek-V2-Lite-Chat",
+      "quantization": "4-bit",
+      "disk_space": "8 GB",
+      "gpu_memory": "9 GB"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "mixtral",
+  "display_name": "Mixtral",
+  "description": "Mixtral models are a series of Sparse Mixture of Experts (SMoE) models from Mistral AI. They are designed to be highly efficient, using only a fraction of their total parameters for any given token, which leads to faster inference times.",
+  "source": "Hugging Face",
+  "variants": {
+    "8x7b-v0.1": {
+      "display_name": "mixtral-8x7b-v0.1",
+      "parameters": "47B",
+      "type": "Base",
+      "model_id": "mistralai/Mixtral-8x7B-v0.1",
+      "quantization": "BF16",
+      "disk_space": "96.8 GB",
+      "gpu_memory": "90 GB"
+    },
+    "8x7b-instruct-v0.1": {
+      "display_name": "mixtral-8x7b-instruct-v0.1",
+      "parameters": "47B",
+      "type": "Instruction-Tuned",
+      "model_id": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      "quantization": "BF16",
+      "disk_space": "96.8 GB",
+      "gpu_memory": "90 GB"
+    },
+    "8x7b-instruct-v0.1-4bit": {
+      "display_name": "mixtral-8x7b-instruct-v0.1-4bit",
+      "parameters": "47B",
+      "type": "Instruction-Tuned",
+      "model_id": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      "quantization": "4-bit",
+      "disk_space": "23-27 GB",
+      "gpu_memory": "23-27 GB"
+    },
+    "8x7b-instruct-v0.1-2bit": {
+      "display_name": "mixtral-8x7b-instruct-v0.1-2bit",
+      "parameters": "47B",
+      "type": "Instruction-Tuned",
+      "model_id": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      "quantization": "2-bit",
+      "disk_space": "12.6-18.2 GB",
+      "gpu_memory": "12-16 GB"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "phi-2",
+  "display_name": "Phi-2",
+  "description": "Phi-2 is a 2.7 billion-parameter language model from Microsoft. Despite its small size, it demonstrates remarkable performance, excelling at common sense, language understanding, and logical reasoning. It was trained on 'textbook-quality' data.",
+  "source": "Hugging Face",
+  "variants": {
+    "base": {
+      "display_name": "phi-2",
+      "parameters": "2.7B",
+      "type": "Base",
+      "model_id": "microsoft/phi-2",
+      "quantization": "FP16",
+      "disk_space": "5.5 GB",
+      "gpu_memory": "8 GB"
+    },
+    "base-8bit": {
+      "display_name": "phi-2-8bit",
+      "parameters": "2.7B",
+      "type": "Base",
+      "model_id": "microsoft/phi-2",
+      "quantization": "8-bit",
+      "disk_space": "2.96 GB",
+      "gpu_memory": "4 GB"
+    },
+    "base-4bit": {
+      "display_name": "phi-2-4bit",
+      "parameters": "2.7B",
+      "type": "Base",
+      "model_id": "microsoft/phi-2",
+      "quantization": "4-bit",
+      "disk_space": "1.74 GB",
+      "gpu_memory": "2 GB"
+    }
+  }
+}

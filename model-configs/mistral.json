@@ -1,0 +1,35 @@
+{
+  "name": "mistral",
+  "display_name": "Mistral",
+  "description": "Mistral models are a series of powerful and efficient large language models from Mistral AI. They are known for their strong performance and open-source availability.",
+  "source": "Hugging Face",
+  "variants": {
+    "7b-v0.1": {
+      "display_name": "mistral-7b-v0.1",
+      "parameters": "7B",
+      "type": "Base",
+      "model_id": "mistralai/Mistral-7B-v0.1",
+      "quantization": "BF16",
+      "disk_space": "14-16 GB",
+      "gpu_memory": "15 GB"
+    },
+    "7b-instruct-v0.3": {
+      "display_name": "mistral-7b-instruct-v0.3",
+      "parameters": "7B",
+      "type": "Instruction-Tuned",
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "quantization": "BF16",
+      "disk_space": "14-16 GB",
+      "gpu_memory": "15 GB"
+    },
+    "7b-instruct-v0.3-4bit": {
+      "display_name": "mistral-7b-instruct-v0.3-4bit",
+      "parameters": "7B",
+      "type": "Instruction-Tuned",
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "quantization": "4-bit",
+      "disk_space": "4.15 GB",
+      "gpu_memory": "5-7 GB"
+    }
+  }
+}

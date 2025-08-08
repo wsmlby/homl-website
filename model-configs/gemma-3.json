@@ -1,0 +1,89 @@
+{
+  "name": "gemma-3",
+  "display_name": "Gemma 3",
+  "description": "Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. The 4B, 12B, and 27B models can process both text and image inputs.",
+  "source": "Hugging Face",
+  "variants": {
+    "4b": {
+      "display_name": "gemma-3-4b",
+      "parameters": "4B",
+      "type": "Base",
+      "model_id": "google/gemma-3-4b",
+      "quantization": "BF16",
+      "disk_space": "8 GB",
+      "gpu_memory": "8 GB"
+    },
+    "4b-it": {
+      "display_name": "gemma-3-4b-it",
+      "parameters": "4B",
+      "type": "Instruction-Tuned",
+      "model_id": "google/gemma-3-4b-it",
+      "quantization": "BF16",
+      "disk_space": "8 GB",
+      "gpu_memory": "8 GB"
+    },
+    "4b-it-int4": {
+      "display_name": "gemma-3-4b-it-int4",
+      "parameters": "4B",
+      "type": "Instruction-Tuned",
+      "model_id": "google/gemma-3-4b-it",
+      "quantization": "INT4",
+      "disk_space": "2.6 GB",
+      "gpu_memory": "2.6 GB"
+    },
+    "12b": {
+      "display_name": "gemma-3-12b",
+      "parameters": "12B",
+      "type": "Base",
+      "model_id": "google/gemma-3-12b",
+      "quantization": "BF16",
+      "disk_space": "24 GB",
+      "gpu_memory": "24 GB"
+    },
+    "12b-it": {
+      "display_name": "gemma-3-12b-it",
+      "parameters": "12B",
+      "type": "Instruction-Tuned",
+      "model_id": "google/gemma-3-12b-it",
+      "quantization": "BF16",
+      "disk_space": "24 GB",
+      "gpu_memory": "24 GB"
+    },
+    "12b-it-int4": {
+      "display_name": "gemma-3-12b-it-int4",
+      "parameters": "12B",
+      "type": "Instruction-Tuned",
+      "model_id": "google/gemma-3-12b-it",
+      "quantization": "INT4",
+      "disk_space": "6.6 GB",
+      "gpu_memory": "6.6 GB"
+    },
+    "27b": {
+      "display_name": "gemma-3-27b",
+      "parameters": "27B",
+      "type": "Base",
+      "model_id": "google/gemma-3-27b",
+      "quantization": "BF16",
+      "disk_space": "54 GB",
+      "gpu_memory": "54 GB"
+    },
+    "27b-it": {
+      "display_name": "gemma-3-27b-it",
+      "parameters": "27B",
+      "type": "Instruction-Tuned",
+      "model_id": "google/gemma-3-27b-it",
+      "quantization": "BF16",
+      "disk_space": "54 GB",
+      "gpu_memory": "54 GB"
+    },
+    "27b-it-int4": {
+      "display_name": "gemma-3-27b-it-int4",
+      "parameters": "27B",
+      "type": "Instruction-Tuned",
+      "model_id": "google/gemma-3-27b-it",
+      "quantization": "INT4",
+      "disk_space": "14.1 GB",
+      "gpu_memory": "14.1 GB"
+    }
+  }
+}

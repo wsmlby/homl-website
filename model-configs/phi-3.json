@@ -1,0 +1,116 @@
+{
+  "name": "phi-3",
+  "display_name": "Phi-3",
+  "description": "The Phi-3 family are small, cost-effective language models from Microsoft that are powerful and outperform models of similar and larger sizes on various benchmarks. They are instruction-tuned and ready for use 'off-the-shelf'.",
+  "source": "Hugging Face",
+  "variants": {
+    "mini-4k-instruct": {
+      "display_name": "phi-3-mini-4k-instruct",
+      "parameters": "3.8B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-3-mini-4k-instruct",
+      "quantization": "FP16",
+      "disk_space": "7.6 GB",
+      "gpu_memory": "7.6 GB"
+    },
+    "mini-4k-instruct-4bit": {
+      "display_name": "phi-3-mini-4k-instruct-4bit",
+      "parameters": "3.8B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-3-mini-4k-instruct",
+      "quantization": "4-bit",
+      "disk_space": "1.8 GB",
+      "gpu_memory": "4 GB"
+    },
+    "mini-128k-instruct": {
+      "display_name": "phi-3-mini-128k-instruct",
+      "parameters": "3.8B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-3-mini-128k-instruct",
+      "quantization": "FP16",
+      "disk_space": "7.6 GB",
+      "gpu_memory": "7.6 GB"
+    },
+    "mini-128k-instruct-4bit": {
+      "display_name": "phi-3-mini-128k-instruct-4bit",
+      "parameters": "3.8B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-3-mini-128k-instruct",
+      "quantization": "4-bit",
+      "disk_space": "1.8 GB",
+      "gpu_memory": "4 GB"
+    },
+    "small-8k-instruct": {
+      "display_name": "phi-3-small-8k-instruct",
+      "parameters": "7B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-3-small-8k-instruct",
+      "quantization": "FP16",
+      "disk_space": "14 GB",
+      "gpu_memory": "14 GB"
+    },
+    "small-8k-instruct-4bit": {
+      "display_name": "phi-3-small-8k-instruct-4bit",
+      "parameters": "7B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-3-small-8k-instruct",
+      "quantization": "4-bit",
+      "disk_space": "3.5 GB",
+      "gpu_memory": "5 GB"
+    },
+    "small-128k-instruct": {
+      "display_name": "phi-3-small-128k-instruct",
+      "parameters": "7B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-3-small-128k-instruct",
+      "quantization": "FP16",
+      "disk_space": "14 GB",
+      "gpu_memory": "14 GB"
+    },
+    "small-128k-instruct-4bit": {
+      "display_name": "phi-3-small-128k-instruct-4bit",
+      "parameters": "7B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-3-small-128k-instruct",
+      "quantization": "4-bit",
+      "disk_space": "3.5 GB",
+      "gpu_memory": "5 GB"
+    },
+    "medium-4k-instruct": {
+      "display_name": "phi-3-medium-4k-instruct",
+      "parameters": "14B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-3-medium-4k-instruct",
+      "quantization": "FP16",
+      "disk_space": "28 GB",
+      "gpu_memory": "28 GB"
+    },
+    "medium-4k-instruct-4bit": {
+      "display_name": "phi-3-medium-4k-instruct-4bit",
+      "parameters": "14B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-3-medium-4k-instruct",
+      "quantization": "4-bit",
+      "disk_space": "7 GB",
+      "gpu_memory": "9 GB"
+    },
+    "medium-128k-instruct": {
+      "display_name": "phi-3-medium-128k-instruct",
+      "parameters": "14B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-3-medium-128k-instruct",
+      "quantization": "FP16",
+      "disk_space": "28 GB",
+      "gpu_memory": "28 GB"
+    },
+    "medium-128k-instruct-4bit": {
+      "display_name": "phi-3-medium-128k-instruct-4bit",
+      "parameters": "14B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-3-medium-128k-instruct",
+      "quantization": "4-bit",
+      "disk_space": "7 GB",
+      "gpu_memory": "9 GB"
+    }
+  }
+}
