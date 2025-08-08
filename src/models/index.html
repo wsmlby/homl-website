@@ -1,0 +1,30 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+<section class="text-center">
+    <h2 class="text-5xl font-extrabold">Models</h2>
+    <p class="text-xl text-gray-400 mt-4">Discover and download curated models.</p>
+</section>
+
+<section class="mt-12">
+    <div class="max-w-2xl mx-auto">
+        <input type="text" id="model-search" placeholder="Search for a model..." class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+</section>
+
+<section id="model-list" class="mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {% for model in models %}
+        <div class="model-card bg-gray-800 rounded-lg overflow-hidden" data-model-name="{{ model.name }}">
+            <div class="p-6">
+                <h3 class="text-xl font-bold">{{ model.display_name }}</h3>
+                <p class="text-gray-400 mt-2">{{ model.description }}</p>
+                <div class="mt-4">
+                    <a href="{{ model.path }}" class="text-blue-400 hover:text-blue-300">View Details &rarr;</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

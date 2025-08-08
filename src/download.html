@@ -1,0 +1,18 @@
+{% extends "templates/base.html" %}
+{% set title = "Download" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-5xl font-extrabold">Download HoML</h2>
+    <p class="text-xl text-gray-400 mt-4">Get started with HoML on your home server.</p>
+</div>
+
+<div class="mt-12 max-w-2xl mx-auto">
+    <h3 class="text-2xl font-bold">One-line Installation</h3>
+    <p class="text-gray-400 mt-2">Run the following command in your terminal to install HoML:</p>
+    <pre class="bg-gray-800 p-4 rounded-lg mt-4 text-green-400"><code>curl -sSL https://homl.sh/install.sh | sh</code></pre>
+    <p class="text-gray-500 mt-4 text-sm">
+        This script will detect your platform and install the correct version of HoML.
+    </p>
+</div>
+{% endblock %}

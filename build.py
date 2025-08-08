@@ -1,0 +1,66 @@
+import os
+import shutil
+import json
+from jinja2 import Environment, FileSystemLoader
+
+# 1. Set up paths
+SRC_DIR = 'src'
+STATIC_DIR = 'static'
+OUTPUT_DIR = 'docs'
+MODEL_CONFIGS_DIR = 'model-configs'
+MODELS_OUTPUT_DIR = os.path.join(OUTPUT_DIR, 'models')
+
+# Clean up the output directory
+if os.path.exists(OUTPUT_DIR):
+    shutil.rmtree(OUTPUT_DIR)
+os.makedirs(MODELS_OUTPUT_DIR)
+
+# 2. Copy static files and model configs
+shutil.copytree(MODEL_CONFIGS_DIR, os.path.join(OUTPUT_DIR, MODEL_CONFIGS_DIR))
+for item in os.listdir(STATIC_DIR):
+    source_item = os.path.join(STATIC_DIR, item)
+    dest_item = os.path.join(OUTPUT_DIR, item)
+    if os.path.isdir(source_item):
+        shutil.copytree(source_item, dest_item)
+    else:
+        shutil.copy2(source_item, dest_item)
+
+# 3. Set up Jinja2 environment
+env = Environment(loader=FileSystemLoader(SRC_DIR), trim_blocks=True, lstrip_blocks=True)
+
+# 4. Load model configurations
+models = []
+for filename in os.listdir(MODEL_CONFIGS_DIR):
+    if filename.endswith('.json'):
+        with open(os.path.join(MODEL_CONFIGS_DIR, filename), 'r') as f:
+            model_data = json.load(f)
+            model_data['path'] = f"/models/{model_data['name']}.html"
+            models.append(model_data)
+
+# 5. Render model pages
+model_template = env.get_template('models/model_page.html')
+for model in models:
+    output_path = os.path.join(OUTPUT_DIR, f"models/{model['name']}.html")
+    html_content = model_template.render(model=model, title=model['display_name'])
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(html_content)
+
+# 6. Render model index page
+model_index_template = env.get_template('models/index.html')
+html_content = model_index_template.render(models=models, title="Models")
+output_path = os.path.join(MODELS_OUTPUT_DIR, 'index.html')
+with open(output_path, 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+# 7. Find and render top-level templates
+for filename in os.listdir(SRC_DIR):
+    if filename.endswith('.html') and not os.path.isdir(os.path.join(SRC_DIR, filename)):
+        template = env.get_template(filename)
+        output_path = os.path.join(OUTPUT_DIR, filename)
+        
+        html_content = template.render(page=filename)
+        
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+
+print(f"✅ Site built successfully in '{OUTPUT_DIR}' directory.")

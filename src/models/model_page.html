@@ -1,0 +1,28 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <a href="/models/" class="text-blue-400 hover:text-blue-300">&larr; Back to Models</a>
+
+    <div class="mt-4">
+        <h2 class="text-4xl font-extrabold">{{ model.display_name }}</h2>
+    </div>
+
+    <div class="mt-8 bg-gray-800 rounded-lg p-6">
+        <h3 class="text-2xl font-bold">Model Details</h3>
+        <p class="text-gray-400 mt-4">
+            {{ model.description }}
+        </p>
+        <div class="mt-6">
+            <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-300 mr-2">{{ model.parameters }} parameters</span>
+            <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-300 mr-2">{{ model.type }}</span>
+        </div>
+    </div>
+
+    <div class="mt-8">
+        <h3 class="text-2xl font-bold">Pull this model</h3>
+        <p class="text-gray-400 mt-2">Use the following command with the HoML CLI:</p>
+        <pre class="bg-gray-800 p-4 rounded-lg mt-2 text-green-400"><code>{{ model.pull_command }}</code></pre>
+    </div>
+</div>
+{% endblock %}
