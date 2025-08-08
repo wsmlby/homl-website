@@ -1,0 +1,35 @@
+{
+  "name": "minicpm-v",
+  "display_name": "MiniCPM-V",
+  "description": "A series of multimodal LLMs (MLLMs) designed for vision-language understanding.",
+  "source": "Hugging Face",
+  "variants": {
+    "2.0": {
+      "display_name": "minicpm-v-2.0",
+      "parameters": "2.8B",
+      "type": "Multimodal",
+      "model_id": "openbmb/MiniCPM-V",
+      "quantization": "BF16",
+      "disk_space": "5.6 GB",
+      "gpu_memory": "5.6 GB"
+    },
+    "2.5": {
+      "display_name": "minicpm-llama3-v-2.5",
+      "parameters": "8B",
+      "type": "Multimodal",
+      "model_id": "openbmb/MiniCPM-Llama3-V-2_5",
+      "quantization": "BF16",
+      "disk_space": "16 GB",
+      "gpu_memory": "16 GB"
+    },
+    "2.6": {
+      "display_name": "minicpm-v-2.6",
+      "parameters": "8B",
+      "type": "Multimodal",
+      "model_id": "openbmb/MiniCPM-V-2_6",
+      "quantization": "BF16",
+      "disk_space": "16 GB",
+      "gpu_memory": "16 GB"
+    }
+  }
+}

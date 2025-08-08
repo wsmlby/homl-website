@@ -1,0 +1,71 @@
+{
+  "name": "deepseek-r1",
+  "display_name": "DeepSeek R1",
+  "description": "DeepSeek R1 is a family of open reasoning models with performance approaching that of leading models.",
+  "source": "Hugging Face",
+  "variants": {
+    "base": {
+      "display_name": "deepseek-r1",
+      "parameters": "671B",
+      "type": "Base",
+      "model_id": "deepseek-ai/DeepSeek-R1",
+      "quantization": "FP8",
+      "disk_space": "671 GB",
+      "gpu_memory": "671 GB"
+    },
+    "1.5b": {
+      "display_name": "deepseek-r1-1.5b",
+      "parameters": "1.5B",
+      "type": "Distilled",
+      "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+      "quantization": "BF16",
+      "disk_space": "3 GB",
+      "gpu_memory": "3 GB"
+    },
+    "7b": {
+      "display_name": "deepseek-r1-7b",
+      "parameters": "7B",
+      "type": "Distilled",
+      "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+      "quantization": "BF16",
+      "disk_space": "14 GB",
+      "gpu_memory": "14 GB"
+    },
+    "8b": {
+      "display_name": "deepseek-r1-8b",
+      "parameters": "8B",
+      "type": "Distilled",
+      "model_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+      "quantization": "BF16",
+      "disk_space": "16 GB",
+      "gpu_memory": "16 GB"
+    },
+    "14b": {
+      "display_name": "deepseek-r1-14b",
+      "parameters": "14B",
+      "type": "Distilled",
+      "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+      "quantization": "BF16",
+      "disk_space": "28 GB",
+      "gpu_memory": "28 GB"
+    },
+    "32b": {
+      "display_name": "deepseek-r1-32b",
+      "parameters": "32B",
+      "type": "Distilled",
+      "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+      "quantization": "BF16",
+      "disk_space": "64 GB",
+      "gpu_memory": "64 GB"
+    },
+    "70b": {
+      "display_name": "deepseek-r1-70b",
+      "parameters": "70B",
+      "type": "Distilled",
+      "model_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+      "quantization": "BF16",
+      "disk_space": "140 GB",
+      "gpu_memory": "140 GB"
+    }
+  }
+}

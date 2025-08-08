@@ -1,0 +1,26 @@
+{
+  "name": "phi4",
+  "display_name": "Phi-4",
+  "description": "Phi-4 is a 14B parameter, state-of-the-art open model from Microsoft.",
+  "source": "Hugging Face",
+  "variants": {
+    "14b": {
+      "display_name": "phi-4-14b",
+      "parameters": "14B",
+      "type": "Base",
+      "model_id": "microsoft/phi-4",
+      "quantization": "BF16",
+      "disk_space": "28 GB",
+      "gpu_memory": "28 GB"
+    },
+    "mini-instruct": {
+      "display_name": "phi-4-mini-instruct",
+      "parameters": "3.8B",
+      "type": "Instruction-Tuned",
+      "model_id": "microsoft/Phi-4-mini-instruct",
+      "quantization": "BF16",
+      "disk_space": "7.6 GB",
+      "gpu_memory": "7.6 GB"
+    }
+  }
+}

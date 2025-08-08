@@ -1,0 +1,62 @@
+{
+  "name": "llava",
+  "display_name": "LLaVA",
+  "description": "LLaVA is a large multimodal model that combines a vision encoder and a language model for general-purpose visual and language understanding.",
+  "source": "Hugging Face",
+  "variants": {
+    "1.5-7b": {
+      "display_name": "llava-1.5-7b",
+      "parameters": "7B",
+      "type": "Multimodal",
+      "model_id": "llava-hf/llava-1.5-7b-hf",
+      "quantization": "BF16",
+      "disk_space": "14 GB",
+      "gpu_memory": "14 GB"
+    },
+    "1.5-13b": {
+      "display_name": "llava-1.5-13b",
+      "parameters": "13B",
+      "type": "Multimodal",
+      "model_id": "llava-hf/llava-1.5-13b-hf",
+      "quantization": "BF16",
+      "disk_space": "26 GB",
+      "gpu_memory": "26 GB"
+    },
+    "v1.6-mistral-7b": {
+      "display_name": "llava-v1.6-mistral-7b",
+      "parameters": "7B",
+      "type": "Multimodal",
+      "model_id": "llava-hf/llava-v1.6-mistral-7b-hf",
+      "quantization": "BF16",
+      "disk_space": "14 GB",
+      "gpu_memory": "14 GB"
+    },
+    "v1.6-vicuna-7b": {
+      "display_name": "llava-v1.6-vicuna-7b",
+      "parameters": "7B",
+      "type": "Multimodal",
+      "model_id": "llava-hf/llava-v1.6-vicuna-7b-hf",
+      "quantization": "BF16",
+      "disk_space": "14 GB",
+      "gpu_memory": "14 GB"
+    },
+    "v1.6-vicuna-13b": {
+      "display_name": "llava-v1.6-vicuna-13b",
+      "parameters": "13B",
+      "type": "Multimodal",
+      "model_id": "llava-hf/llava-v1.6-vicuna-13b-hf",
+      "quantization": "BF16",
+      "disk_space": "26 GB",
+      "gpu_memory": "26 GB"
+    },
+    "v1.6-34b": {
+      "display_name": "llava-v1.6-34b",
+      "parameters": "34B",
+      "type": "Multimodal",
+      "model_id": "llava-hf/llava-v1.6-34b-hf",
+      "quantization": "BF16",
+      "disk_space": "68 GB",
+      "gpu_memory": "68 GB"
+    }
+  }
+}

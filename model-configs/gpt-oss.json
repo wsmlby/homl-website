@@ -1,0 +1,26 @@
+{
+  "name": "gpt-oss",
+  "display_name": "GPT-OSS",
+  "description": "OpenAI’s open-weight models designed for powerful reasoning, agentic tasks, and versatile developer use cases.",
+  "source": "Hugging Face",
+  "variants": {
+    "20b": {
+      "display_name": "gpt-oss-20b",
+      "parameters": "20B",
+      "type": "Base",
+      "model_id": "openai/gpt-oss-20b",
+      "quantization": "BF16",
+      "disk_space": "14 GB",
+      "gpu_memory": "16 GB"
+    },
+    "120b": {
+      "display_name": "gpt-oss-120b",
+      "parameters": "120B",
+      "type": "Base",
+      "model_id": "openai/gpt-oss-120b",
+      "quantization": "BF16",
+      "disk_space": "65 GB",
+      "gpu_memory": "80 GB"
+    }
+  }
+}

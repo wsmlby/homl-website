@@ -1,0 +1,17 @@
+{
+  "name": "deepseek-v3",
+  "display_name": "DeepSeek V3",
+  "description": "A strong Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token.",
+  "source": "Hugging Face",
+  "variants": {
+    "base": {
+      "display_name": "deepseek-v3",
+      "parameters": "671B",
+      "type": "Base",
+      "model_id": "deepseek-ai/DeepSeek-V3",
+      "quantization": "BF16",
+      "disk_space": "1.4 TB",
+      "gpu_memory": "1.4 TB"
+    }
+  }
+}

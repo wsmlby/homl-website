@@ -1,0 +1,62 @@
+{
+  "name": "llama3.1",
+  "display_name": "Llama 3.1",
+  "description": "Llama 3.1 is a new state-of-the-art model from Meta available in 8B, 70B and 405B parameter sizes.",
+  "source": "Hugging Face",
+  "variants": {
+    "8b": {
+      "display_name": "llama3.1-8b",
+      "parameters": "8B",
+      "type": "Base",
+      "model_id": "meta-llama/Llama-3.1-8B",
+      "quantization": "BF16",
+      "disk_space": "16 GB",
+      "gpu_memory": "16 GB"
+    },
+    "8b-instruct": {
+      "display_name": "llama3.1-8b-instruct",
+      "parameters": "8B",
+      "type": "Instruction-Tuned",
+      "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "quantization": "BF16",
+      "disk_space": "16 GB",
+      "gpu_memory": "16 GB"
+    },
+    "70b": {
+      "display_name": "llama3.1-70b",
+      "parameters": "70B",
+      "type": "Base",
+      "model_id": "meta-llama/Llama-3.1-70B",
+      "quantization": "BF16",
+      "disk_space": "140 GB",
+      "gpu_memory": "140 GB"
+    },
+    "70b-instruct": {
+      "display_name": "llama3.1-70b-instruct",
+      "parameters": "70B",
+      "type": "Instruction-Tuned",
+      "model_id": "meta-llama/Llama-3.1-70B-Instruct",
+      "quantization": "BF16",
+      "disk_space": "140 GB",
+      "gpu_memory": "140 GB"
+    },
+    "405b": {
+      "display_name": "llama3.1-405b",
+      "parameters": "405B",
+      "type": "Base",
+      "model_id": "meta-llama/Llama-3.1-405B",
+      "quantization": "BF16",
+      "disk_space": "810 GB",
+      "gpu_memory": "810 GB"
+    },
+    "405b-instruct": {
+      "display_name": "llama3.1-405b-instruct",
+      "parameters": "405B",
+      "type": "Instruction-Tuned",
+      "model_id": "meta-llama/Llama-3.1-405B-Instruct",
+      "quantization": "BF16",
+      "disk_space": "810 GB",
+      "gpu_memory": "810 GB"
+    }
+  }
+}
