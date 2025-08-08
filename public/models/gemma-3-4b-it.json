@@ -1,6 +1,6 @@
 {
-  "name": "google/gemma-3-4b-it",
-  "display_name": "google/gemma-3-4b-it",
+  "name": "gemma-3-4b-it",
+  "display_name": "gemma-3-4b-it",
   "description": "Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. This is the 3.4B parameter, instruction-tuned version.",
   "parameters": "4B",
   "type": "Instruction-Tuned",
