@@ -10,4 +10,27 @@
         <a href="download.html" class="ml-4 bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg text-lg">Download</a>
     </div>
 </div>
+
+<div class="max-w-4xl mx-auto text-left mt-16">
+    <h3 class="text-3xl font-bold mb-6 text-center">How to Use HoML</h3>
+    <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h4 class="text-xl font-semibold mb-2">Pull a model from Hugging Face Hub</h4>
+            <p class="text-gray-400 mb-4">Download a model to your local machine.</p>
+            <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl pull gemma-3-4b-it</code></pre>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h4 class="text-xl font-semibold mb-2">Run a model in interactive chat mode</h4>
+            <p class="text-gray-400 mb-4">Start a conversation with a model.</p>
+            <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl run gemma-3-4b-it</code></pre>
+            <p class="text-gray-400 mt-4 mb-4">You can also use the full Hugging Face model ID:</p>
+            <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl run google/gemma-3-4b-it</code></pre>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h4 class="text-xl font-semibold mb-2">Start the OpenAI-compatible API server</h4>
+            <p class="text-gray-400 mb-4">Serve models through an API.</p>
+            <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl serve</code></pre>
+        </div>
+    </div>
+</div>
 {% endblock %}
