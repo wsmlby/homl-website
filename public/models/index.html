@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Models - HoLM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+    <header class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold"><a href="/">HoLM</a></h1>
+        <nav>
+            <a href="/models" class="text-lg text-white font-bold mr-4">Models</a>
+            <a href="https://github.com/your-repo/holm" class="text-lg text-gray-400 hover:text-white">GitHub</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section class="text-center">
+            <h2 class="text-5xl font-extrabold">Models</h2>
+            <p class="text-xl text-gray-400 mt-4">Discover and download curated models.</p>
+        </section>
+
+        <section class="mt-12">
+            <div class="max-w-2xl mx-auto">
+                <input type="text" id="model-search" placeholder="Search for a model..." class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+        </section>
+
+        <section id="model-list" class="mt-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Model Card -->
+                <div class="model-card bg-gray-800 rounded-lg overflow-hidden" data-model-name="google/gemma-3-4b-it">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">google/gemma-3-4b-it</h3>
+                        <p class="text-gray-400 mt-2">A new open-source model from Google.</p>
+                        <div class="mt-4">
+                            <a href="/models/gemma-3-4b-it.html" class="text-blue-400 hover:text-blue-300">View Details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- More models will be added here -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="container mx-auto px-6 py-4 mt-12 border-t border-gray-700 text-center text-gray-500">
+        <p>&copy; 2025 HoLM. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>
