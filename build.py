@@ -47,6 +47,9 @@ for filename in os.listdir(MODEL_CONFIGS_DIR):
             model_data['variants'] = variants
             models.append(model_data)
 
+# Sort models alphabetically by display name
+models.sort(key=lambda x: x['display_name'])
+
 # 5. Render model pages
 model_template = env.get_template('models/model_page.html')
 for model in models:
