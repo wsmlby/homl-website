@@ -11,79 +11,98 @@
 
     <header class="container mx-auto px-6 py-4 flex justify-between items-center">
         <h1 class="text-2xl font-bold">HoLM</h1>
-        <nav>
+        <nav class="flex items-center">
+            <form action="/models/" method="GET" class="relative mr-4">
+                <input type="search" name="q" placeholder="Search models..." class="bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 w-48 transition-all duration-300 focus:w-64">
+                <svg class="absolute top-1/2 right-3 transform -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </form>
             <a href="/models" class="text-lg text-gray-400 hover:text-white mr-4">Models</a>
+            <a href="/download.html" class="text-lg text-gray-400 hover:text-white mr-4">Download</a>
             <a href="https://github.com/your-repo/holm" class="text-lg text-gray-400 hover:text-white">GitHub</a>
         </nav>
     </header>
 
-    <main class="container mx-auto px-6 py-12">
-        <section class="text-center">
-            <h2 class="text-5xl font-extrabold">HoLM</h2>
-            <p class="text-xl text-gray-400 mt-4">The best of Ollama and vLLM</p>
-            <p class="mt-8">HoLM aims to combine the ease of use of Ollama with the high-performance inference capabilities of vLLM. This project provides a simple and intuitive command-line interface (CLI) to run and manage large language models, powered by the speed and compatibility of vLLM.</p>
+    <main class="container mx-auto px-6">
+        <section class="text-center py-20">
+            <h2 class="text-6xl font-extrabold">Get started with HoLM.</h2>
+            <p class="text-xl text-gray-400 mt-4">The easiest way to run LLMs on your local machine.</p>
+            <a href="/download.html" class="mt-8 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold text-xl py-4 px-8 rounded-lg">
+                Download
+            </a>
         </section>
 
-        <section id="why" class="mt-16">
-            <h3 class="text-3xl font-bold text-center">Why HoLM?</h3>
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h4 class="text-xl font-bold">An Ollama-like experience</h4>
-                    <p class="text-gray-400 mt-2">A simple, intuitive CLI that just works.</p>
+        <hr class="border-gray-700 my-16">
+
+        <!-- Existing content moved below the fold -->
+        <div class="py-12">
+            <section class="text-center">
+                <h2 class="text-5xl font-extrabold">HoLM</h2>
+                <p class="text-xl text-gray-400 mt-4">The best of Ollama and vLLM</p>
+                <p class="mt-8 max-w-3xl mx-auto">HoLM aims to combine the ease of use of Ollama with the high-performance inference capabilities of vLLM. This project provides a simple and intuitive command-line interface (CLI) to run and manage large language models, powered by the speed and compatibility of vLLM.</p>
+            </section>
+
+            <section id="why" class="mt-16">
+                <h3 class="text-3xl font-bold text-center">Why HoLM?</h3>
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold">An Ollama-like experience</h4>
+                        <p class="text-gray-400 mt-2">A simple, intuitive CLI that just works.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold">High-performance inference</h4>
+                        <p class="text-gray-400 mt-2">Powered by vLLM for maximum speed.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold">Broad model compatibility</h4>
+                        <p class="text-gray-400 mt-2">Access to a vast range of models from the Hugging Face Hub.</p>
+                    </div>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h4 class="text-xl font-bold">High-performance inference</h4>
-                    <p class="text-gray-400 mt-2">Powered by vLLM for maximum speed.</p>
+            </section>
+
+            <section id="features" class="mt-16">
+                <h3 class="text-3xl font-bold text-center">Features</h3>
+                <ul class="list-disc list-inside mt-8 space-y-2 text-gray-300 max-w-2xl mx-auto">
+                    <li>One-Line Installation: A simple, one-line script for easy installation and upgrades.</li>
+                    <li>Simple CLI: An intuitive command-line interface for managing and running models.</li>
+                    <li>Easy Model Management: A `pull` command to download models from the Hugging Face Hub.</li>
+                    <li>Automatic Model Loading/Unloading: Models are loaded and unloaded from memory as needed.</li>
+                    <li>Interactive Chat: A `run` command to start an interactive chat session with a model.</li>
+                    <li>OpenAI-Compatible API: A built-in server that exposes an OpenAI-compatible API.</li>
+                    <li>Curated Model List: A website and a curated list of tested and verified models.</li>
+                </ul>
+            </section>
+
+            <section id="cli" class="mt-16">
+                <h3 class="text-3xl font-bold text-center">Proposed CLI Design</h3>
+                <div class="mt-8 max-w-2xl mx-auto">
+                    <p class="text-gray-400">Pull a model from the Hugging Face Hub:</p>
+                    <pre class="bg-gray-800 p-4 rounded-lg mt-2 text-green-400"><code>holm pull google/gemma-3-4b-it</code></pre>
+
+                    <p class="text-gray-400 mt-6">Run a model in interactive chat mode:</p>
+                    <pre class="bg-gray-800 p-4 rounded-lg mt-2 text-green-400"><code>holm run mistralai/Mistral-7B-Instruct-v0.2</code></pre>
+
+                    <p class="text-gray-400 mt-6">Start the OpenAI-compatible API server:</p>
+                    <pre class="bg-gray-800 p-4 rounded-lg mt-2 text-green-400"><code>holm serve</code></pre>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h4 class="text-xl font-bold">Broad model compatibility</h4>
-                    <p class="text-gray-400 mt-2">Access to a vast range of models from the Hugging Face Hub.</p>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="features" class="mt-16">
-            <h3 class="text-3xl font-bold text-center">Features</h3>
-            <ul class="list-disc list-inside mt-8 space-y-2 text-gray-300 max-w-2xl mx-auto">
-                <li>One-Line Installation: A simple, one-line script for easy installation and upgrades.</li>
-                <li>Simple CLI: An intuitive command-line interface for managing and running models.</li>
-                <li>Easy Model Management: A `pull` command to download models from the Hugging Face Hub.</li>
-                <li>Automatic Model Loading/Unloading: Models are loaded and unloaded from memory as needed.</li>
-                <li>Interactive Chat: A `run` command to start an interactive chat session with a model.</li>
-                <li>OpenAI-Compatible API: A built-in server that exposes an OpenAI-compatible API.</li>
-                <li>Curated Model List: A website and a curated list of tested and verified models.</li>
-            </ul>
-        </section>
-
-        <section id="cli" class="mt-16">
-            <h3 class="text-3xl font-bold text-center">Proposed CLI Design</h3>
-            <div class="mt-8 max-w-2xl mx-auto">
-                <p class="text-gray-400">Pull a model from the Hugging Face Hub:</p>
-                <pre class="bg-gray-800 p-4 rounded-lg mt-2 text-green-400"><code>holm pull mistralai/Mistral-7B-Instruct-v0.2</code></pre>
-
-                <p class="text-gray-400 mt-6">Run a model in interactive chat mode:</p>
-                <pre class="bg-gray-800 p-4 rounded-lg mt-2 text-green-400"><code>holm run mistralai/Mistral-7B-Instruct-v0.2</code></pre>
-
-                <p class="text-gray-400 mt-6">Start the OpenAI-compatible API server:</p>
-                <pre class="bg-gray-800 p-4 rounded-lg mt-2 text-green-400"><code>holm serve</code></pre>
-            </div>
-        </section>
-
-        <section id="roadmap" class="mt-16">
-            <h3 class="text-3xl font-bold text-center">Roadmap</h3>
-            <ol class="list-decimal list-inside mt-8 space-y-2 text-gray-300 max-w-2xl mx-auto">
-                <li>Basic Project Structure</li>
-                <li>One-Line Installation Script</li>
-                <li>CLI Implementation</li>
-                <li>vLLM Integration</li>
-                <li>Model Pulling</li>
-                <li>Interactive Chat</li>
-                <li>API Server</li>
-                <li>Automatic Model Loading/Unloading</li>
-                <li>Curated Model List</li>
-            </ol>
-        </section>
-
+            <section id="roadmap" class="mt-16">
+                <h3 class="text-3xl font-bold text-center">Roadmap</h3>
+                <ol class="list-decimal list-inside mt-8 space-y-2 text-gray-300 max-w-2xl mx-auto">
+                    <li>Basic Project Structure</li>
+                    <li>One-Line Installation Script</li>
+                    <li>CLI Implementation</li>
+                    <li>vLLM Integration</li>
+                    <li>Model Pulling</li>
+                    <li>Interactive Chat</li>
+                    <li>API Server</li>
+                    <li>Automatic Model Loading/Unloading</li>
+                    <li>Curated Model List</li>
+                </ol>
+            </section>
+        </div>
     </main>
 
     <footer class="container mx-auto px-6 py-4 mt-12 border-t border-gray-700 text-center text-gray-500">

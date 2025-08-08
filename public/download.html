@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download - HoLM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+    <header class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold"><a href="/">HoLM</a></h1>
+        <nav class="flex items-center">
+            <form action="/models/" method="GET" class="relative mr-4">
+                <input type="search" name="q" placeholder="Search models..." class="bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 w-48 transition-all duration-300 focus:w-64">
+                <svg class="absolute top-1/2 right-3 transform -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </form>
+            <a href="/models" class="text-lg text-gray-400 hover:text-white mr-4">Models</a>
+            <a href="/download.html" class="text-lg text-white font-bold mr-4">Download</a>
+            <a href="https://github.com/your-repo/holm" class="text-lg text-gray-400 hover:text-white">GitHub</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl font-extrabold">Download HoLM</h2>
+            <p class="text-xl text-gray-400 mt-4">Get started with HoLM on your machine.</p>
+        </div>
+
+        <div class="mt-12 max-w-2xl mx-auto">
+            <h3 class="text-2xl font-bold">One-line Installation</h3>
+            <p class="text-gray-400 mt-2">Run the following command in your terminal to install HoLM:</p>
+            <pre class="bg-gray-800 p-4 rounded-lg mt-4 text-green-400"><code>curl -sSL https://holm.sh/install.sh | sh</code></pre>
+            <p class="text-gray-500 mt-4 text-sm">
+                This script will detect your platform and install the correct version of HoLM.
+            </p>
+        </div>
+    </main>
+
+    <footer class="container mx-auto px-6 py-4 mt-12 border-t border-gray-700 text-center text-gray-500">
+        <p>&copy; 2025 HoLM. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
