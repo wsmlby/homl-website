@@ -4,6 +4,15 @@
   "description": "Qwen3 is the latest series of large language models from Alibaba Cloud. They are Transformer-based models with SwiGLU activation, attention QKV bias, and group query attention. They have strong performance in language understanding, generation, multilingual capabilities, coding, mathematics, and reasoning.",
   "source": "Hugging Face",
   "variants": {
+    "0.6b": {
+      "display_name": "qwen3-0.6b",
+      "parameters": "0.6B",
+      "type": "Base",
+      "model_id": "Qwen/Qwen3-0.6B",
+      "quantization": "BF16",
+      "disk_space": "1.2 GB",
+      "gpu_memory": "1.2 GB"
+    },
     "1.7b": {
       "display_name": "qwen3-1.7b",
       "parameters": "1.7B",
