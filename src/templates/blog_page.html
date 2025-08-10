@@ -1,0 +1,10 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+<div class="prose prose-invert mx-auto">
+    <h1>{{ post.title }}</h1>
+    <p class="text-gray-400">Published on {{ post.date }} by {{ post.author }}</p>
+    <hr class="my-6 border-gray-700">
+    {{ post.content | safe }}
+</div>
+{% endblock %}

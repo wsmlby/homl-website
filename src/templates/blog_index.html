@@ -1,0 +1,18 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+<div class="prose prose-invert mx-auto">
+    <h1>Blog</h1>
+    <hr class="my-6 border-gray-700">
+    <ul>
+        {% for post in posts %}
+        <li>
+            <a href="{{ post.path }}">
+                <h2>{{ post.title }}</h2>
+            </a>
+            <p class="text-gray-400">Published on {{ post.date }} by {{ post.author }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

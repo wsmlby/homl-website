@@ -2,18 +2,23 @@ import os
 import shutil
 import json
 from jinja2 import Environment, FileSystemLoader
+import markdown2
+import frontmatter
 
 # 1. Set up paths
 SRC_DIR = 'src'
 STATIC_DIR = 'static'
 OUTPUT_DIR = 'docs'
 MODEL_CONFIGS_DIR = 'model-configs'
+BLOGS_DIR = os.path.join(SRC_DIR, 'blogs')
 MODELS_OUTPUT_DIR = os.path.join(OUTPUT_DIR, 'models')
+BLOGS_OUTPUT_DIR = os.path.join(OUTPUT_DIR, 'blogs')
 
 # Clean up the output directory
 if os.path.exists(OUTPUT_DIR):
     shutil.rmtree(OUTPUT_DIR)
 os.makedirs(MODELS_OUTPUT_DIR)
+os.makedirs(BLOGS_OUTPUT_DIR)
 
 # 2. Copy static files and model configs
 shutil.copytree(MODEL_CONFIGS_DIR, os.path.join(OUTPUT_DIR, MODEL_CONFIGS_DIR))
@@ -65,13 +70,44 @@ output_path = os.path.join(MODELS_OUTPUT_DIR, 'index.html')
 with open(output_path, 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-# 7. Find and render all HTML templates from src to docs
+# 7. Process and render blog posts
+posts = []
+for filename in os.listdir(BLOGS_DIR):
+    if filename.endswith('.md'):
+        filepath = os.path.join(BLOGS_DIR, filename)
+        with open(filepath, 'r', encoding='utf-8') as f:
+            post = frontmatter.load(f)
+            post_data = post.metadata
+            post_data['content'] = markdown2.markdown(post.content)
+            post_data['slug'] = filename.replace('.md', '')
+            post_data['path'] = f"/blogs/{post_data['slug']}.html"
+            posts.append(post_data)
+
+posts.sort(key=lambda x: x['date'], reverse=True)
+
+blog_template = env.get_template('templates/blog_page.html')
+for post in posts:
+    output_path = os.path.join(BLOGS_OUTPUT_DIR, f"{post['slug']}.html")
+    html_content = blog_template.render(post=post, title=post['title'], page='blog')
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(html_content)
+
+# Render blog index page
+blog_index_template = env.get_template('templates/blog_index.html')
+html_content = blog_index_template.render(posts=posts, title="Blog", page='blog')
+output_path = os.path.join(BLOGS_OUTPUT_DIR, 'index.html')
+with open(output_path, 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+# 8. Find and render all HTML templates from src to docs
 for root, dirs, files in os.walk(SRC_DIR):
-    # Exclude 'templates' and 'models' directories from being processed directly
+    # Exclude 'templates', 'models' and 'blogs' directories from being processed directly
     if 'templates' in dirs:
         dirs.remove('templates')
-    if 'models'in dirs:
+    if 'models' in dirs:
         dirs.remove('models')
+    if 'blogs' in dirs:
+        dirs.remove('blogs')
 
     for filename in files:
         if filename.endswith('.html'):
