@@ -65,15 +65,30 @@ output_path = os.path.join(MODELS_OUTPUT_DIR, 'index.html')
 with open(output_path, 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-# 7. Find and render top-level templates
-for filename in os.listdir(SRC_DIR):
-    if filename.endswith('.html') and not os.path.isdir(os.path.join(SRC_DIR, filename)):
-        template = env.get_template(filename)
-        output_path = os.path.join(OUTPUT_DIR, filename)
-        
-        html_content = template.render(page=filename)
-        
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(html_content)
+# 7. Find and render all HTML templates from src to docs
+for root, dirs, files in os.walk(SRC_DIR):
+    # Exclude 'templates' and 'models' directories from being processed directly
+    if 'templates' in dirs:
+        dirs.remove('templates')
+    if 'models'in dirs:
+        dirs.remove('models')
+
+    for filename in files:
+        if filename.endswith('.html'):
+            # Construct the full path relative to SRC_DIR
+            template_path = os.path.relpath(os.path.join(root, filename), SRC_DIR)
+            
+            # Determine the output path
+            output_path = os.path.join(OUTPUT_DIR, template_path)
+            
+            # Ensure the output directory exists
+            os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+            # Render the template
+            template = env.get_template(template_path)
+            html_content = template.render(page=template_path)
+            
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(html_content)
 
 print(f"✅ Site built successfully in '{OUTPUT_DIR}' directory.")

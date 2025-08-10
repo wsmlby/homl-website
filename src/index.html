@@ -13,28 +13,12 @@
 </div>
 
 <div class="max-w-4xl mx-auto text-left mt-12 md:mt-16">
-    <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">How to Use HoML CLI</h3>
+    <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">Frequently Used Commands</h3>
     <div class="grid grid-cols-1 gap-6">
-        <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
-            <h4 class="text-lg md:text-xl font-semibold mb-2">Install HoML</h4>
-            <p class="text-gray-400 mb-4">Go to the <a href="download.html" class="text-blue-400 hover:underline">download page</a> to get the HoML CLI for your system. Once installed, run the following command to set up the HoML server:</p>
-            <div class="relative">
-                <div class="relative">
-                <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl server install</code></pre>
-                <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                    <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
-                </button>
-            </div>
-            </div>
-        </div>
         <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
             <h4 class="text-lg md:text-xl font-semibold mb-2">Pull a model from Hugging Face Hub</h4>
             <p class="text-gray-400 mb-4">Download a model to your local machine. You can use a shorthand alias for curated models.</p>
             <div class="relative">
-                <div class="relative">
                 <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl pull qwen3:0.6b</code></pre>
                 <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -43,25 +27,11 @@
                     <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
                 </button>
             </div>
-            </div>
-            <p class="text-gray-400 mt-4 mb-4">Or use the full Hugging Face model ID:</p>
-            <div class="relative">
-                <div class="relative">
-                <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl pull TencentARC/qwen-3-0.6b</code></pre>
-                <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                    <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
-                </button>
-            </div>
-            </div>
         </div>
         <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
             <h4 class="text-lg md:text-xl font-semibold mb-2">Run a model</h4>
             <p class="text-gray-400 mb-4">Run a downloaded model. This will start the model and make it available for chat and API access.</p>
             <div class="relative">
-                <div class="relative">
                 <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl run qwen3:0.6b</code></pre>
                 <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -70,13 +40,11 @@
                     <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
                 </button>
             </div>
-            </div>
         </div>
         <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
             <h4 class="text-lg md:text-xl font-semibold mb-2">Run a model in interactive chat mode</h4>
             <p class="text-gray-400 mb-4">Start a conversation with a model.</p>
             <div class="relative">
-                <div class="relative">
                 <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl chat qwen3:0.6b</code></pre>
                 <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,97 +53,10 @@
                     <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
                 </button>
             </div>
-            </div>
         </div>
-        <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
-            <h4 class="text-lg md:text-xl font-semibold mb-2">List local models</h4>
-            <p class="text-gray-400 mb-4">List all models that are available locally.</p>
-            <div class="relative">
-                <div class="relative">
-                <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl list</code></pre>
-                <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                    <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
-                </button>
-            </div>
-            </div>
-        </div>
-        <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
-            <h4 class="text-lg md:text-xl font-semibold mb-2">Check running models</h4>
-            <p class="text-gray-400 mb-4">Check the status of models that are currently running.</p>
-            <div class="relative">
-                <div class="relative">
-                <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl ps</code></pre>
-                <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                    <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
-                </button>
-            </div>
-            </div>
-        </div>
-        <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
-            <h4 class="text-lg md:text-xl font-semibold mb-2">Stop a model</h4>
-            <p class="text-gray-400 mb-4">Stop a running model to free up resources.</p>
-            <div class="relative">
-                <div class="relative">
-                <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl stop qwen3:0.6b</code></pre>
-                <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                    <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
-                </button>
-            </div>
-            </div>
-        </div>
-        <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
-            <h4 class="text-lg md:text-xl font-semibold mb-2">Authenticate with Hugging Face</h4>
-            <p class="text-gray-400 mb-4">Set your Hugging Face token to pull private or gated models. You can provide the token directly or load it automatically from the default Hugging Face cache.</p>
-            <div class="relative">
-                <div class="relative">
-                <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl auth hugging-face &lt;your-token&gt;</code></pre>
-                <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                    <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
-                </button>
-            </div>
-            </div>
-            <p class="text-gray-400 mt-4 mb-4">Or load it automatically:</p>
-            <div class="relative">
-                <div class="relative">
-                <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl auth hugging-face --auto</code></pre>
-                <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                    <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
-                </button>
-            </div>
-            </div>
-        </div>
-        <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
-            <h4 class="text-lg md:text-xl font-semibold mb-2">Manage HoML Server</h4>
-            <p class="text-gray-400 mb-4">You can manage the HoML server with the following commands:</p>
-            <div class="relative">
-                <div class="relative">
-                <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl server stop
-homl server restart
-homl server log</code></pre>
-                <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                    <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
-                </button>
-            </div>
-            </div>
-        </div>
+    </div>
+    <div class="flex justify-center mt-8">
+        <a href="docs/cli.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg">View All Commands</a>
     </div>
 </div>
 {% endblock %}
