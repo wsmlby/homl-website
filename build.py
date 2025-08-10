@@ -78,7 +78,7 @@ for filename in os.listdir(BLOGS_DIR):
         with open(filepath, 'r', encoding='utf-8') as f:
             post = frontmatter.load(f)
             post_data = post.metadata
-            post_data['content'] = markdown2.markdown(post.content)
+            post_data['content'] = markdown2.markdown(post.content, extras=['fenced-code-blocks'])
             post_data['slug'] = filename.replace('.md', '')
             post_data['path'] = f"/blogs/{post_data['slug']}.html"
             posts.append(post_data)

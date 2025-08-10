@@ -40,32 +40,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Copy to clipboard
-    const copyButtons = document.querySelectorAll('.copy-btn');
-    copyButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent page jump
-            const pre = button.closest('.relative').querySelector('pre');
-            const code = pre.querySelector('code');
-            const textToCopy = code.innerText;
+    // Add copy buttons to code blocks
+    const codeBlocks = document.querySelectorAll('.prose pre');
+    codeBlocks.forEach(codeBlock => {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.textContent = 'Copy';
+        codeBlock.appendChild(button);
 
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    const tooltip = button.querySelector('.copy-tooltip');
-                    if (tooltip) {
-                        tooltip.style.opacity = 1;
-                        setTimeout(() => {
-                            tooltip.style.opacity = 0;
-                        }, 1500);
-                    }
-                }).catch(err => {
-                    console.error('Failed to copy text: ', err);
-                    alert('Failed to copy text. Please try again.');
-                });
-            } else {
-                console.error('Clipboard API not available. This feature requires a secure context (HTTPS).');
-                alert('Copying to clipboard is not supported in this browser or context.');
-            }
+        button.addEventListener('click', () => {
+            const code = codeBlock.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Error';
+            });
         });
     });
 });
