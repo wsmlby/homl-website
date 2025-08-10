@@ -22,15 +22,6 @@
       "disk_space": "8 GB",
       "gpu_memory": "8 GB"
     },
-    "4b-it-int4": {
-      "display_name": "gemma-3-4b-it-int4",
-      "parameters": "4B",
-      "type": "Instruction-Tuned",
-      "model_id": "google/gemma-3-4b-it",
-      "quantization": "INT4",
-      "disk_space": "2.6 GB",
-      "gpu_memory": "2.6 GB"
-    },
     "12b": {
       "display_name": "gemma-3-12b",
       "parameters": "12B",
@@ -49,15 +40,6 @@
       "disk_space": "24 GB",
       "gpu_memory": "24 GB"
     },
-    "12b-it-int4": {
-      "display_name": "gemma-3-12b-it-int4",
-      "parameters": "12B",
-      "type": "Instruction-Tuned",
-      "model_id": "google/gemma-3-12b-it",
-      "quantization": "INT4",
-      "disk_space": "6.6 GB",
-      "gpu_memory": "6.6 GB"
-    },
     "27b": {
       "display_name": "gemma-3-27b",
       "parameters": "27B",
@@ -75,15 +57,6 @@
       "quantization": "BF16",
       "disk_space": "54 GB",
       "gpu_memory": "54 GB"
-    },
-    "27b-it-int4": {
-      "display_name": "gemma-3-27b-it-int4",
-      "parameters": "27B",
-      "type": "Instruction-Tuned",
-      "model_id": "google/gemma-3-27b-it",
-      "quantization": "INT4",
-      "disk_space": "14.1 GB",
-      "gpu_memory": "14.1 GB"
     }
   }
 }
