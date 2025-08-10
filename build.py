@@ -54,13 +54,13 @@ models.sort(key=lambda x: x['display_name'])
 model_template = env.get_template('models/model_page.html')
 for model in models:
     output_path = os.path.join(OUTPUT_DIR, f"models/{model['name']}.html")
-    html_content = model_template.render(model=model, title=model['display_name'])
+    html_content = model_template.render(model=model, title=model['display_name'], page='models')
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html_content)
 
 # 6. Render model index page
 model_index_template = env.get_template('models/index.html')
-html_content = model_index_template.render(models=models, title="Models")
+html_content = model_index_template.render(models=models, title="Models", page='models')
 output_path = os.path.join(MODELS_OUTPUT_DIR, 'index.html')
 with open(output_path, 'w', encoding='utf-8') as f:
     f.write(html_content)
