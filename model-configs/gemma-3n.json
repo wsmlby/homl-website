@@ -1,0 +1,44 @@
+{
+  "name": "gemma-3n",
+  "display_name": "Gemma 3N",
+  "description": "Gemma 3N is a variant of the Gemma 3 model, optimized for enhanced performance and efficiency.",
+  "source": "Hugging Face",
+  "variants": {
+    "e2b": {
+      "display_name": "gemma-3n-e2b",
+      "parameters": "5B",
+      "type": "Base",
+      "model_id": "google/gemma-3n-E2B",
+      "quantization": "BF16",
+      "disk_space": "10 GB",
+      "gpu_memory": "10 GB"
+    },
+    "e2b-it": {
+      "display_name": "gemma-3n-e2b-it",
+      "parameters": "5B",
+      "type": "Instruction-Tuned",
+      "model_id": "google/gemma-3n-E2B-it",
+      "quantization": "BF16",
+      "disk_space": "10 GB",
+      "gpu_memory": "10 GB"
+    },
+    "e4b": {
+      "display_name": "gemma-3n-e4b",
+      "parameters": "10B",
+      "type": "Base",
+      "model_id": "google/gemma-3n-E4B",
+      "quantization": "BF16",
+      "disk_space": "20 GB",
+      "gpu_memory": "20 GB"
+    },
+    "e4b-it": {
+      "display_name": "gemma-3n-e4b-it",
+      "parameters": "10B",
+      "type": "Instruction-Tuned",
+      "model_id": "google/gemma-3n-E4B-it",
+      "quantization": "BF16",
+      "disk_space": "20 GB",
+      "gpu_memory": "20 GB"
+    }
+  }
+}
