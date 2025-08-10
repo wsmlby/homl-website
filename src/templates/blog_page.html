@@ -1,0 +1,16 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto text-left">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-center mt-4 mb-8">{{ post.title }}</h2>
+    <div class="text-center text-gray-400 mb-8">
+        <span>Published on {{ post.date }} by {{ post.author }}</span>
+    </div>
+
+    <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
+        <div class="prose prose-invert max-w-none">
+            {{ post.content | safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}

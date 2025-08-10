@@ -107,6 +107,16 @@
             </div>
         </div>
         <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
+            <h4 class="text-lg md:text-xl font-semibold mb-2">Automatic GPU Memory Management</h4>
+            <p class="text-gray-400 mb-4">
+                HoML is designed to manage your GPU resources efficiently. When you make a request to the OpenAI-compatible API for a specific model, HoML automatically loads it into memory.
+                Currently, only one model can run at a time. If you make a request for a different model, HoML will unload the previous one and load the new one.
+            </p>
+            <p class="text-gray-400">
+                To free up your GPU for other applications, models are automatically unloaded after a period of inactivity. The default idle timeout is <strong>10 minutes</strong>. You can configure this timeout using the <code>homl config set model_unload_idle_time &lt;seconds&gt;</code> command.
+            </p>
+        </div>
+        <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
             <h4 class="text-lg md:text-xl font-semibold mb-2">Authenticate with Hugging Face</h4>
             <p class="text-gray-400 mb-4">Set your Hugging Face token to pull private or gated models. You can provide the token directly or load it automatically from the default Hugging Face cache.</p>
             <div class="relative">

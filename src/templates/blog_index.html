@@ -1,0 +1,17 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <h1 class="text-5xl font-extrabold text-center mb-12">Blog</h1>
+    <div class="space-y-12">
+        {% for post in posts %}
+        <div class="group border-l-4 border-gray-700 pl-6 hover:border-blue-400 transition-colors duration-200">
+            <a href="{{ post.path }}">
+                <h2 class="text-3xl font-bold group-hover:text-blue-400 transition-colors duration-200">{{ post.title }}</h2>
+            </a>
+            <p class="text-gray-400 mt-2">Published on {{ post.date }} by {{ post.author }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

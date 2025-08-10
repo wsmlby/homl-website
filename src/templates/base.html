@@ -21,15 +21,16 @@
       gtag('config', 'G-RRYR5DLDNL');
     </script>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body class="bg-gray-900 text-white font-sans flex flex-col h-screen">
 
     {% include 'templates/header.html' %}
 
-    <main class="container mx-auto px-6 py-12">
-        {% block content %}{% endblock %}
-    </main>
-
-    {% include 'templates/footer.html' %}
+    <div id="main-container" class="flex-1 overflow-y-auto">
+        <main class="container mx-auto px-6 py-12">
+            {% block content %}{% endblock %}
+        </main>
+        {% include 'templates/footer.html' %}
+    </div>
 
     <script src="/js/app.js"></script>
     {% block scripts %}{% endblock %}
