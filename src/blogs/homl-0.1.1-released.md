@@ -25,9 +25,6 @@ In version 0.1.1, we have implemented the following widely-used endpoints:
 -   `POST /v1/chat/completions`: For generating chat-based responses.
 -   `POST /v1/completions`: For standard text completions.
 -   `GET /v1/models`: For listing the available models that HoML can serve.
-
-We have also introduced a new endpoint:
-
 -   `POST /v1/responses`: A new endpoint for response generation.
 
 This increased compatibility allows you to leverage the vast ecosystem of tools built for the OpenAI API while benefiting from the speed and efficiency of HoML.
@@ -52,6 +49,8 @@ This will download and install the latest server version, giving you immediate a
 
 ## Get Started Today
 
-Updating to HoML 0.1.1 is easy. Head over to our download page to get the latest version and experience these new features for yourself.
+If you haven't tried HoML yet, now is the perfect time to dive in. With these enhancements, running local AI models has never been easier or faster.
+
+Visit [https://homl.dev](https://homl.dev) to get started, and check out our documentation for more details on how to use the new features.
 
 We are incredibly proud of this release and the progress it represents. As always, we are humbled by the support of our community and driven by the exciting possibilities that lie ahead. Stay tuned for more updates!
