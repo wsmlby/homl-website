@@ -1,7 +1,7 @@
 {
   "name": "gemma-3n",
   "display_name": "Gemma 3N",
-  "description": "Gemma 3N is a variant of the Gemma 3 model, optimized for enhanced performance and efficiency.",
+  "description": "Gemma 3N is a variant of the Gemma 3 model, optimized for enhanced performance and efficiency. Note these are not chat models.",
   "source": "Hugging Face",
   "variants": {
     "e2b": {
