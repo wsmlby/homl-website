@@ -1,12 +1,12 @@
 ---
-title: "HoML 0.1.1 Released: Better Compatibility and Faster Model Loading/Switching"
+title: "HoML 0.1.2 Released: Better Compatibility and Faster Model Loading/Switching"
 date: "2025-08-11"
 author: "The HoML Team"
 ---
 
-# HoML 0.1.1 Released: Better Compatibility and Faster Model Loading/Switching
+# HoML 0.1.2 Released: Better Compatibility and Faster Model Loading/Switching
 
-We are thrilled to announce the release of HoML version 0.1.1! This release is a significant step forward in our mission to make large language models more accessible and efficient for everyone. With this update, we've focused on two key areas: dramatically improving model loading times and enhancing API compatibility.
+We are thrilled to announce the release of HoML version 0.1.2! This release is a significant step forward in our mission to make large language models more accessible and efficient for everyone. With this update, we've focused on two key areas: dramatically improving model loading times and enhancing API compatibility.
 
 ## Blazing-Fast Model Loading and Switching
 
@@ -20,7 +20,7 @@ This means less time waiting and more time for you to experiment, iterate, and d
 
 To make integration as seamless as possible, we've expanded our API to be more compatible with OpenAI's standards. We believe in building an open ecosystem, and that starts with making HoML a drop-in replacement for many existing tools and applications.
 
-In version 0.1.1, we have implemented the following widely-used endpoints:
+In version 0.1.2, we have implemented the following widely-used endpoints:
 
 -   `POST /v1/chat/completions`: For generating chat-based responses.
 -   `POST /v1/completions`: For standard text completions.
@@ -37,7 +37,7 @@ You can check your current version by running:
 homl version
 ```
 
-You only need the server to be on v0.1.1 to take advantage of these new features.
+You only need the server to be on v0.1.2 to take advantage of these new features.
 
 To upgrade to the latest version and get these new features, you only need to update the HoML server. You can do this easily with the following command:
 
