@@ -78,25 +78,25 @@ for filename in os.listdir(BLOGS_DIR):
         with open(filepath, 'r', encoding='utf-8') as f:
             post = frontmatter.load(f)
             post_data = post.metadata
-            
-            if filename.endswith('.md'):
-                post_data['content'] = markdown2.markdown(post.content, extras=['fenced-code-blocks'])
-            
             post_data['slug'] = filename.rsplit('.', 1)[0]
             post_data['path'] = f"/blogs/{post_data['slug']}.html"
             posts.append(post_data)
 
-posts.sort(key=lambda x: x['date'], reverse=True)
+            output_path = os.path.join(BLOGS_OUTPUT_DIR, f"{post_data['slug']}.html")
 
-blog_template = env.get_template('templates/blog_page.html')
-for post in posts:
-    # We only render markdown posts with the blog_template
-    # HTML posts are handled by the generic HTML renderer at the end of the script
-    if 'content' in post:
-        output_path = os.path.join(BLOGS_OUTPUT_DIR, f"{post['slug']}.html")
-        html_content = blog_template.render(post=post, title=post['title'], page='blog')
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(html_content)
+            if filename.endswith('.md'):
+                blog_template = env.get_template('templates/blog_page.html')
+                post_data['content'] = markdown2.markdown(post.content, extras=['fenced-code-blocks'])
+                html_content = blog_template.render(post=post_data, title=post_data['title'], page='blog')
+            elif filename.endswith('.html'):
+                # The content of the HTML file is a Jinja template itself
+                html_template = env.from_string(post.content)
+                html_content = html_template.render(post=post_data, title=post_data['title'], page='blog')
+
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(html_content)
+
+posts.sort(key=lambda x: x['date'], reverse=True)
 
 # Render blog index page
 blog_index_template = env.get_template('templates/blog_index.html')
@@ -112,6 +112,8 @@ for root, dirs, files in os.walk(SRC_DIR):
         dirs.remove('templates')
     if 'models' in dirs:
         dirs.remove('models')
+    if 'blogs' in dirs:
+        dirs.remove('blogs')
 
     for filename in files:
         if filename.endswith('.html'):
