@@ -1,0 +1,243 @@
+---
+title: "HoML vs. Ollama: A Deep Dive into Performance"
+date: "2025-08-11"
+author: "The HoML Team"
+---
+{% extends "templates/base.html" %}
+{% set title = "HoML vs. Ollama: A Deep Dive into Performance" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto text-left">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-center mt-4 mb-8">HoML vs. Ollama: A Deep Dive into Performance</h2>
+    <div class="text-center text-gray-400 mb-8">
+        <span>Published on 2025-08-11 by The HoML Team</span>
+    </div>
+
+    <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
+        <div class="prose prose-invert max-w-none">
+            <p>At HoML, our goal is to merge the high-performance inference of vLLM with a user-friendly experience similar to Ollama. But how does HoML stack up in a head-to-head comparison? In this post, we'll dive into a detailed performance benchmark between HoML and Ollama to help you understand the strengths of each tool.</p>
+
+            <h2>Benchmark Setup</h2>
+            <p>All tests were conducted on a machine with an <strong>RTX 4000 Ada SFF</strong> GPU, using the <code>qwen3:0.6b</code> model. We measured performance across two scenarios: one with a small prompt (45 input tokens) and one with a larger prompt (around 630 input tokens), both generating 512 output tokens.</p>
+
+            <h2>Generation Throughput</h2>
+            <p>Generation throughput (tokens/second) measures how quickly the model can produce output after processing the prompt. This is a critical metric for applications where response speed is key.</p>
+
+            <canvas id="genThroughputSmallPromptChart" class="my-8"></canvas>
+            <canvas id="genThroughputLargePromptChart" class="my-8"></canvas>
+
+            <p>The charts clearly show that <strong>HoML's generation throughput scales significantly better with increasing concurrency</strong>. While Ollama is very fast for a single user, its throughput remains relatively flat as more concurrent requests are added. In contrast, HoML's throughput continues to climb, making it ideal for serving multiple users simultaneously. For instance, at 64 concurrent users with a small prompt, HoML is over 7.5x faster.</p>
+
+            <h2>Prompt Throughput</h2>
+            <p>Prompt throughput measures how quickly the system can process incoming tokens. This is important for applications that handle large initial inputs.</p>
+
+            <canvas id="promptThroughputSmallPromptChart" class="my-8"></canvas>
+            <canvas id="promptThroughputLargePromptChart" class="my-8"></canvas>
+
+            <p>For prompt processing, the story is a bit different. With small prompts, Ollama shows higher throughput at lower concurrency, but HoML catches up and performs well as concurrency increases. For larger prompts, both platforms perform well, with HoML showing a slight edge at higher concurrency levels.</p>
+
+            <h2>Startup Time</h2>
+            <p>One area where Ollama currently has a significant advantage is startup time. In our tests, Ollama started in just <strong>2 seconds</strong>, while HoML took <strong>40 seconds</strong>. This is an area we are actively working to improve in future releases of HoML.</p>
+
+            <h2>A Note on CPU Usage</h2>
+            <p>Another important observation from our testing relates to CPU usage. During inference, Ollama's CPU usage consistently reached 100% on a single core. In contrast, HoML's CPU usage was barely noticeable. This is because HoML is designed to offload the heavy lifting to the GPU, leaving your CPU free for other tasks. This makes HoML a better choice for environments where the host machine is also used for other activities, which is common in a homelab setup.</p>
+
+            <h2>Conclusion: Which Tool is Right for You?</h2>
+            <p>The choice between HoML and Ollama depends heavily on your use case.</p>
+            
+            <h3>Choose Ollama if:</h3>
+            <ul>
+                <li>You are running models for personal use or local development on your workstation.</li>
+                <li>You need to start and stop the server frequently.</li>
+                <li>Your application has low concurrency requirements (e.g., a single user).</li>
+            </ul>
+
+            <h3>Choose HoML if:</h3>
+            <ul>
+                <li>You are a homelab user who wants to host a central LLM service for yourself, family, or friends.</li>
+                <li>You are building an application to serve multiple users concurrently.</li>
+                <li>High generation throughput under load is a critical requirement.</li>
+                <li>You want to minimize CPU usage during inference.</li>
+            </ul>
+
+            <p>We are committed to making HoML the best platform for running local AI at scale. These benchmark results highlight the power of the vLLM engine for high-concurrency workloads, and we are excited to continue improving HoML's performance and usability.</p>
+
+            <h2>Raw Benchmark Data</h2>
+            <h3>HoML</h3>
+            <h4>Input Tokens: 45, Output Tokens: 512</h4>
+            <table class="w-full my-4 text-left border-collapse">
+                <thead>
+                    <tr>
+                        <th class="border-b p-2">Concurrency</th>
+                        <th class="border-b p-2">Generation Throughput (tokens/s)</th>
+                        <th class="border-b p-2">Prompt Throughput (tokens/s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="border-b p-2">1</td><td class="border-b p-2">120.69</td><td class="border-b p-2">493.70</td></tr>
+                    <tr><td class="border-b p-2">2</td><td class="border-b p-2">225.08</td><td class="border-b p-2">506.36</td></tr>
+                    <tr><td class="border-b p-2">4</td><td class="border-b p-2">421.40</td><td class="border-b p-2">567.60</td></tr>
+                    <tr><td class="border-b p-2">8</td><td class="border-b p-2">739.98</td><td class="border-b p-2">553.24</td></tr>
+                    <tr><td class="border-b p-2">16</td><td class="border-b p-2">1201.21</td><td class="border-b p-2">588.81</td></tr>
+                    <tr><td class="border-b p-2">32</td><td class="border-b p-2">1736.70</td><td class="border-b p-2">568.45</td></tr>
+                    <tr><td class="border-b p-2">64</td><td class="border-b p-2">2254.05</td><td class="border-b p-2">521.75</td></tr>
+                    <tr><td class="border-b p-2">128</td><td class="border-b p-2">2665.06</td><td class="border-b p-2">511.56</td></tr>
+                </tbody>
+            </table>
+
+            <h4>Input Tokens: 639, Output Tokens: 512</h4>
+            <table class="w-full my-4 text-left border-collapse">
+                <thead>
+                    <tr>
+                        <th class="border-b p-2">Concurrency</th>
+                        <th class="border-b p-2">Generation Throughput (tokens/s)</th>
+                        <th class="border-b p-2">Prompt Throughput (tokens/s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="border-b p-2">1</td><td class="border-b p-2">110.79</td><td class="border-b p-2">5957.71</td></tr>
+                    <tr><td class="border-b p-2">2</td><td class="border-b p-2">198.14</td><td class="border-b p-2">5370.69</td></tr>
+                    <tr><td class="border-b p-2">4</td><td class="border-b p-2">341.47</td><td class="border-b p-2">6668.88</td></tr>
+                    <tr><td class="border-b p-2">8</td><td class="border-b p-2">551.57</td><td class="border-b p-2">6258.40</td></tr>
+                    <tr><td class="border-b p-2">16</td><td class="border-b p-2">822.37</td><td class="border-b p-2">6608.10</td></tr>
+                    <tr><td class="border-b p-2">32</td><td class="border-b p-2">1101.57</td><td class="border-b p-2">6908.50</td></tr>
+                    <tr><td class="border-b p-2">64</td><td class="border-b p-2">1301.82</td><td class="border-b p-2">7157.56</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Ollama</h3>
+            <h4>Input Tokens: 45, Output Tokens: 512</h4>
+            <table class="w-full my-4 text-left border-collapse">
+                <thead>
+                    <tr>
+                        <th class="border-b p-2">Concurrency</th>
+                        <th class="border-b p-2">Generation Throughput (tokens/s)</th>
+                        <th class="border-b p-2">Prompt Throughput (tokens/s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="border-b p-2">1</td><td class="border-b p-2">219.65</td><td class="border-b p-2">1402.03</td></tr>
+                    <tr><td class="border-b p-2">2</td><td class="border-b p-2">353.66</td><td class="border-b p-2">1524.88</td></tr>
+                    <tr><td class="border-b p-2">4</td><td class="border-b p-2">351.98</td><td class="border-b p-2">2447.82</td></tr>
+                    <tr><td class="border-b p-2">8</td><td class="border-b p-2">354.50</td><td class="border-b p-2">3210.91</td></tr>
+                    <tr><td class="border-b p-2">16</td><td class="border-b p-2">352.00</td><td class="border-b p-2">2906.49</td></tr>
+                    <tr><td class="border-b p-2">32</td><td class="border-b p-2">328.50</td><td class="border-b p-2">2977.29</td></tr>
+                    <tr><td class="border-b p-2">64</td><td class="border-b p-2">293.38</td><td class="border-b p-2">3252.87</td></tr>
+                </tbody>
+            </table>
+
+            <h4>Input Tokens: 625, Output Tokens: 512</h4>
+            <table class="w-full my-4 text-left border-collapse">
+                <thead>
+                    <tr>
+                        <th class="border-b p-2">Concurrency</th>
+                        <th class="border-b p-2">Generation Throughput (tokens/s)</th>
+                        <th class="border-b p-2">Prompt Throughput (tokens/s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="border-b p-2">1</td><td class="border-b p-2">171.77</td><td class="border-b p-2">5676.86</td></tr>
+                    <tr><td class="border-b p-2">2</td><td class="border-b p-2">272.75</td><td class="border-b p-2">6778.64</td></tr>
+                    <tr><td class="border-b p-2">4</td><td class="border-b p-2">264.26</td><td class="border-b p-2">7027.95</td></tr>
+                    <tr><td class="border-b p-2">8</td><td class="border-b p-2">256.17</td><td class="border-b p-2">7001.90</td></tr>
+                    <tr><td class="border-b p-2">16</td><td class="border-b p-2">243.04</td><td class="border-b p-2">7158.38</td></tr>
+                    <tr><td class="border-b p-2">32</td><td class="border-b p-2">232.40</td><td class="border-b p-2">7074.50</td></tr>
+                    <tr><td class="border-b p-2">64</td><td class="border-b p-2">237.09</td><td class="border-b p-2">6881.15</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const commonChartOptions = {
+        scales: {
+            x: {
+                title: { display: true, text: 'Concurrency', color: 'white' },
+                ticks: { color: 'white' }
+            },
+            y: {
+                title: { display: true, text: 'Tokens/Second', color: 'white' },
+                ticks: { color: 'white' },
+                beginAtZero: true
+            }
+        },
+        plugins: {
+            legend: { labels: { color: 'white' } }
+        }
+    };
+
+    // Data
+    const concurrency = [1, 2, 4, 8, 16, 32, 64];
+    const concurrencyHoML = [1, 2, 4, 8, 16, 32, 64, 128];
+
+    // Generation Throughput Data
+    const genThroughputHoMLSmall = [120.69, 225.08, 421.40, 739.98, 1201.21, 1736.70, 2254.05, 2665.06];
+    const genThroughputOllamaSmall = [219.65, 353.66, 351.98, 354.50, 352.00, 328.50, 293.38];
+    const genThroughputHoMLLarge = [110.79, 198.14, 341.47, 551.57, 822.37, 1101.57, 1301.82];
+    const genThroughputOllamaLarge = [171.77, 272.75, 264.26, 256.17, 243.04, 232.40, 237.09];
+
+    // Prompt Throughput Data
+    const promptThroughputHoMLSmall = [493.70, 506.36, 567.60, 553.24, 588.81, 568.45, 521.75, 511.56];
+    const promptThroughputOllamaSmall = [1402.03, 1524.88, 2447.82, 3210.91, 2906.49, 2977.29, 3252.87];
+    const promptThroughputHoMLLarge = [5957.71, 5370.69, 6668.88, 6258.40, 6608.10, 6908.50, 7157.56];
+    const promptThroughputOllamaLarge = [5676.86, 6778.64, 7027.95, 7001.90, 7158.38, 7074.50, 6881.15];
+
+    // Chart 1: Generation Throughput (Small Prompt)
+    new Chart(document.getElementById('genThroughputSmallPromptChart'), {
+        type: 'line',
+        data: {
+            labels: concurrencyHoML,
+            datasets: [
+                { label: 'HoML', data: genThroughputHoMLSmall, borderColor: '#3b82f6', fill: false },
+                { label: 'Ollama', data: genThroughputOllamaSmall, borderColor: '#10b981', fill: false }
+            ]
+        },
+        options: { ...commonChartOptions, plugins: { ...commonChartOptions.plugins, title: { display: true, text: 'Generation Throughput (Small Prompt)', color: 'white' } } }
+    });
+
+    // Chart 2: Generation Throughput (Large Prompt)
+    new Chart(document.getElementById('genThroughputLargePromptChart'), {
+        type: 'line',
+        data: {
+            labels: concurrency,
+            datasets: [
+                { label: 'HoML', data: genThroughputHoMLLarge, borderColor: '#3b82f6', fill: false },
+                { label: 'Ollama', data: genThroughputOllamaLarge, borderColor: '#10b981', fill: false }
+            ]
+        },
+        options: { ...commonChartOptions, plugins: { ...commonChartOptions.plugins, title: { display: true, text: 'Generation Throughput (Large Prompt)', color: 'white' } } }
+    });
+
+    // Chart 3: Prompt Throughput (Small Prompt)
+    new Chart(document.getElementById('promptThroughputSmallPromptChart'), {
+        type: 'line',
+        data: {
+            labels: concurrencyHoML,
+            datasets: [
+                { label: 'HoML', data: promptThroughputHoMLSmall, borderColor: '#3b82f6', fill: false },
+                { label: 'Ollama', data: promptThroughputOllamaSmall, borderColor: '#10b981', fill: false }
+            ]
+        },
+        options: { ...commonChartOptions, plugins: { ...commonChartOptions.plugins, title: { display: true, text: 'Prompt Throughput (Small Prompt)', color: 'white' } } }
+    });
+
+    // Chart 4: Prompt Throughput (Large Prompt)
+    new Chart(document.getElementById('promptThroughputLargePromptChart'), {
+        type: 'line',
+        data: {
+            labels: concurrency,
+            datasets: [
+                { label: 'HoML', data: promptThroughputHoMLLarge, borderColor: '#3b82f6', fill: false },
+                { label: 'Ollama', data: promptThroughputOllamaLarge, borderColor: '#10b981', fill: false }
+            ]
+        },
+        options: { ...commonChartOptions, plugins: { ...commonChartOptions.plugins, title: { display: true, text: 'Prompt Throughput (Large Prompt)', color: 'white' } } }
+    });
+});
+</script>
+{% endblock %}
