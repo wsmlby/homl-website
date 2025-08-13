@@ -53,6 +53,16 @@
                     <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
                 </button>
             </div>
+            <p class="text-gray-400 mt-4 mb-4">For a faster startup, you can use eager mode. This mode has slower latency but similar throughput.</p>
+            <div class="relative">
+                <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl run qwen3:0.6b --eager</code></pre>
+                <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
+                </button>
+            </div>
         </div>
         <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
             <h4 class="text-lg md:text-xl font-semibold mb-2">Run a model in interactive chat mode</h4>
@@ -66,6 +76,25 @@
                     <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
                 </button>
             </div>
+        </div>
+        <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
+            <h4 class="text-lg md:text-xl font-semibold mb-2">Eager Mode for Faster Model Loading</h4>
+            <p class="text-gray-400 mb-4">
+                To improve your experience, HoML now uses <strong>Eager Mode</strong> by default for interactive sessions and automatic model switching. This significantly reduces model startup times.
+            </p>
+            <p class="text-gray-400 mb-4">
+                Specifically:
+            </p>
+            <ul class="list-disc list-inside text-gray-400 mb-4 pl-4">
+                <li>The <code>homl chat</code> command automatically starts the model in Eager Mode.</li>
+                <li>When the server switches models due to an API request, the new model is also loaded in Eager Mode.</li>
+            </ul>
+            <p class="text-gray-400 mb-4">
+                This results in much faster model loading. For example, we've observed startup time improvements from <strong>38s to 18s</strong> for <code>gpt-oss:20b</code> and from <strong>22s to 8s</strong> for <code>qwen3:0.6b</code>.
+            </p>
+            <p class="text-gray-400">
+                If you need the lowest possible latency for individual requests and don't mind a longer initial startup, you can still use the standard <code>homl run &lt;model_name&gt;</code> command without the <code>--eager</code> flag.
+            </p>
         </div>
         <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
             <h4 class="text-lg md:text-xl font-semibold mb-2">List local models</h4>

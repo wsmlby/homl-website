@@ -86,7 +86,20 @@ for filename in os.listdir(BLOGS_DIR):
 
             if filename.endswith('.md'):
                 blog_template = env.get_template('templates/blog_page.html')
-                post_data['content'] = markdown2.markdown(post.content, extras=['fenced-code-blocks'])
+                post_data['content'] = markdown2.markdown(
+                    post.content,
+                    extras={
+                        'fenced-code-blocks': None,
+                        'tables': None,
+                        'html-classes': {
+                            'table': 'w-full my-4 text-left border-collapse shadow-lg rounded-lg overflow-hidden',
+                            'thead': 'bg-gray-700',
+                            'th': 'p-3 font-bold uppercase text-white border-b border-gray-600',
+                            'td': 'p-3 border-b border-gray-800',
+                            'tr': 'hover:bg-gray-800'
+                        }
+                    }
+                )
                 html_content = blog_template.render(post=post_data, title=post_data['title'], page='blog')
             elif filename.endswith('.html'):
                 # The content of the HTML file is a Jinja template itself
