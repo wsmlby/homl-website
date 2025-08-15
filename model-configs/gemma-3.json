@@ -4,14 +4,23 @@
   "description": "Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. The 4B, 12B, and 27B models can process both text and image inputs.",
   "source": "Hugging Face",
   "variants": {
-    "4b": {
-      "display_name": "gemma-3-4b",
-      "parameters": "4B",
+    "270m": {
+      "display_name": "gemma-3-270m",
+      "parameters": "270M",
       "type": "Base",
-      "model_id": "google/gemma-3-4b",
+      "model_id": "google/gemma-3-270m",
       "quantization": "BF16",
-      "disk_space": "8 GB",
-      "gpu_memory": "8 GB"
+      "disk_space": "540 MB",
+      "gpu_memory": "540 MB"
+    },
+    "270m-it": {
+      "display_name": "gemma-3-270m-it",
+      "parameters": "270M",
+      "type": "Instruction-Tuned",
+      "model_id": "google/gemma-3-270m-it",
+      "quantization": "BF16",
+      "disk_space": "540 MB",
+      "gpu_memory": "540 MB"
     },
     "4b-it": {
       "display_name": "gemma-3-4b-it",
