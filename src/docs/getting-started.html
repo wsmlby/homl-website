@@ -19,6 +19,18 @@
                     <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
                 </button>
             </div>
+            <p class="text-gray-400 mt-4 mb-4">This will start a OpenAI compatible API server on the port you configured, default to 7456</p>
+            <p class="text-gray-400 mt-4 mb-4">Even better: Install the <a href="https://github.com/open-webui/open-webui" class="text-blue-400 hover:underline">Open WebUI</a> (since v0.2.2)</p>
+            <div class="relative">
+                <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl server install --webui</code></pre>
+                <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
+                </button>
+            </div>
+            <p class="text-gray-400 mt-4 mb-4">This will start a open-webui server on port 7457</p>
         </div>
 
         <!-- Step 2: Pull a Model -->
@@ -37,7 +49,8 @@
         <!-- Step 3: Chat with the Model -->
         <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
             <h3 class="text-2xl font-bold mb-4">Step 3: Chat with Your Model</h3>
-            <p class="text-gray-400 mb-4">You can start a conversation directly from your terminal. This is the easiest way to interact with your model.</p>
+            <p class="text-gray-400 mb-4">If you installed with the --webui option, head over to <a href="http://localhost:7457" class="text-blue-400 hover:underline">http://localhost:7457</a> to access the web interface.</p>
+            <p class="text-gray-400 mb-4">You also can start a conversation directly from your terminal. This is the easiest way to interact with your model.</p>
             <div class="relative">
                 <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl chat qwen3:0.6b</code></pre>
                 <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
