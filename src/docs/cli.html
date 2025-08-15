@@ -79,6 +79,19 @@
             </div>
         </div>
         <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
+            <h4 class="text-lg md:text-xl font-semibold mb-2">Run a model in complete mode</h4>
+            <p class="text-gray-400 mb-4">Ask the model for text completion. This will work for models that doesn't have a chat template.</p>
+            <div class="relative">
+                <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>homl complete gemma-3:270m-it "3.1415926"</code></pre>
+                <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
+                </button>
+            </div>
+        </div>
+        <div class="relative bg-gray-800 rounded-lg p-4 md:p-6">
             <h4 class="text-lg md:text-xl font-semibold mb-2">Eager Mode for Faster Model Loading</h4>
             <p class="text-gray-400 mb-4">
                 To improve your experience, HoML now uses <strong>Eager Mode</strong> by default for interactive sessions and automatic model switching. This significantly reduces model startup times.
