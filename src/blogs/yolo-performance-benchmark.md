@@ -86,6 +86,19 @@ Does supplying more power to a GPU always translate to better performance? We co
 
 The extra 20W provides a modest but consistent performance uplift of **around 8-10%** across different levels of concurrency. While not a groundbreaking increase, it shows that for power-constrained environments, even a small bump in wattage can yield a noticeable improvement in throughput.
 
+## Framework Comparison: PyTorch vs. ONNX Runtime vs. TensorRT
+
+The hardware you run on is only half the story; the software framework you use for inference can make a massive difference in performance. To quantify this, we benchmarked the same YOLOv8s model on an RTX 4060 (100W, batch size 1) using four different inference configurations:
+
+*   **PyTorch:** The baseline, using the standard Torch-based inference.
+*   **ONNX Runtime (CUDA):** Using ONNX Runtime with its CUDA Execution Provider, which offers a good out-of-the-box speedup.
+*   **ONNX Runtime (TensorRT):** Using ONNX Runtime with the more optimized TensorRT Execution Provider.
+*   **TensorRT (`trtexec`):** The peak performance baseline, using NVIDIA's `trtexec` tool to run a pure, highly-optimized TensorRT engine.
+
+<svg id="frameworkChart" class="my-8"></svg>
+
+The results are clear: moving from PyTorch to a more specialized inference framework yields significant gains. While ONNX Runtime with CUDA provides a solid boost, leveraging its TensorRT provider unlocks even more performance. For maximum throughput, a pure TensorRT implementation is the undisputed winner, delivering **over 12% more FPS** than the next best option (ONNX with TensorRT) at 8 concurrent runs and **over 2.5x the throughput of PyTorch** at a single run.
+
 ## CPU Inference: Getting the Most from PyTorch and OpenVINO
 
 While GPUs are king, sometimes you're limited to a CPU. We tested both PyTorch and OpenVINO on a 4-vCPU instance to see which framework performed better.
@@ -141,6 +154,40 @@ For CPU-bound inference, a properly configured **OpenVINO is the clear winner**,
 | 4 | 230 | 920 |
 
 ### RTX 4060 (100W & 120W)
+
+#### RTX 4060 100W Framework Comparison (Batch 1, with MPS)
+
+**PyTorch**
+| Concurrency | Avg. FPS per Run | Total Combined FPS |
+|:--- |:---:|:---:|
+| 1 | 250 | 250 |
+| 2 | 235 | 470 |
+| 4 | 169 | 676 |
+| 8 | 100 | 800 |
+
+**ONNX Runtime (CUDA)**
+| Concurrency | Avg. FPS per Run | Total Combined FPS |
+|:--- |:---:|:---:|
+| 1 | 330 | 330 |
+| 2 | 272 | 544 |
+| 4 | 155 | 620 |
+| 8 | 85 | 680 |
+
+**ONNX Runtime (TensorRT)**
+| Concurrency | Avg. FPS per Run | Total Combined FPS |
+|:--- |:---:|:---:|
+| 1 | 497 | 497 |
+| 2 | 355 | 710 |
+| 4 | 208 | 832 |
+| 8 | 100 | 800 |
+
+**TensorRT (trtexec)**
+| Concurrency | Avg. FPS per Run | Total Combined FPS |
+|:--- |:---:|:---:|
+| 1 | 646 | 646 |
+| 2 | 392 | 784 |
+| 4 | 220 | 880 |
+| 8 | 113 | 904 |
 
 #### RTX 4060 100W (Batch 32, No MPS)
 | Concurrency | Avg. FPS per Run | Total Combined FPS |
@@ -229,6 +276,10 @@ document.addEventListener('DOMContentLoaded', function () {
             datasets: [{
                 label: 'Total FPS',
                 data: h100Concurrency.map((c, i) => ({ x: c, y: h100TotalFps[i] }))
+            }, {
+                label: 'invisible',
+                data: [{ x: 0, y: 0 }],
+                options: { showLine: false }
             }]
         },
         options: {
@@ -261,6 +312,50 @@ document.addEventListener('DOMContentLoaded', function () {
             }, {
                 label: 'Batch 32',
                 data: concurrency.map((c, i) => ({ x: c, y: batch32Fps[i] }))
+            }, {
+                label: 'invisible',
+                data: [{ x: 0, y: 0 }],
+                options: { showLine: false }
+            }]
+        },
+        options: {
+            xTickCount: 4,
+            yTickCount: 5,
+            legendPosition: chartXkcd.config.positionType.upLeft,
+            showLine: true,
+            timeFormat: undefined,
+            dotSize: 1,
+        }
+    });
+
+    // Framework Comparison Chart
+    const frameworkConcurrency = [1, 2, 4, 8];
+    const pytorchFps = [250, 470, 676, 800];
+    const onnxCudaFps = [330, 544, 620, 680];
+    const onnxTrtFps = [497, 710, 832, 800];
+    const trtExecFps = [646, 784, 880, 904];
+
+    new chartXkcd.XY(document.getElementById('frameworkChart'), {
+        title: 'Framework Throughput on RTX 4060 (100W, Batch 1)',
+        xLabel: 'Number of Concurrent Runs',
+        yLabel: 'Total Combined FPS',
+        data: {
+            datasets: [{
+                label: 'PyTorch',
+                data: frameworkConcurrency.map((c, i) => ({ x: c, y: pytorchFps[i] }))
+            }, {
+                label: 'ONNX (CUDA)',
+                data: frameworkConcurrency.map((c, i) => ({ x: c, y: onnxCudaFps[i] }))
+            }, {
+                label: 'ONNX (TensorRT)',
+                data: frameworkConcurrency.map((c, i) => ({ x: c, y: onnxTrtFps[i] }))
+            }, {
+                label: 'TensorRT (trtexec)',
+                data: frameworkConcurrency.map((c, i) => ({ x: c, y: trtExecFps[i] }))
+            }, {
+                label: 'invisible',
+                data: [{ x: 0, y: 0 }],
+                options: { showLine: false }
             }]
         },
         options: {
@@ -288,6 +383,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }, {
                 label: '120W',
                 data: concurrency.map((c, i) => ({ x: c, y: power120WFps[i] }))
+            }, {
+                label: 'invisible',
+                data: [{ x: 0, y: 0 }],
+                options: { showLine: false }
             }]
         },
         options: {
