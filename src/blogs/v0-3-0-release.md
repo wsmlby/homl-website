@@ -1,6 +1,6 @@
 ---
 title: "HoML v0.3.0: Customize Your Model Launch Options"
-date: "August 16, 2025"
+date: "2025-08-16"
 author: "The HoML Team"
 ---
 
