@@ -1,0 +1,57 @@
+{% extends "templates/base.html" %}
+{% set title = "Whistle AI Log Monitor" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto text-center">
+    <img src="/images/whistle.png" alt="Whistle AI Logo" class="mt-8 rounded-lg shadow-lg mx-auto" style="max-width: 200px;">
+    <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Whistle AI</h2>
+    <p class="text-lg md:text-xl text-gray-400 mt-4">Your Smart Log Monitor, Powered by Local LLMs.</p>
+    <div class="mt-8 flex flex-col md:flex-row justify-center items-center">
+        <div class="relative w-full max-w-md">
+            <pre class="bg-gray-800 rounded-lg p-4 text-white overflow-x-auto text-left text-sm"><code>curl -sSL https://raw.githubusercontent.com/wsmlby/whistle/refs/heads/main/install.sh | bash</code></pre>
+            <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+                <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
+            </button>
+        </div>
+        <a href="https://github.com/wsmlby/whistle" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg text-lg mt-4 md:mt-0 md:ml-4">View on GitHub</a>
+    </div>
+</div>
+
+<div class="max-w-4xl mx-auto text-left mt-12 md:mt-16">
+    <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">Key Features</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h4 class="text-xl font-semibold mb-2">AI-Powered Log Analysis</h4>
+            <p class="text-gray-400">Leverages LLMs to understand log context, reducing false positives and alert fatigue.</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h4 class="text-xl font-semibold mb-2">Private & Offline-First</h4>
+            <p class="text-gray-400">Integrates with HoML to run on your own hardware. Your logs never leave your network.</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h4 class="text-xl font-semibold mb-2">Easy Deployment</h4>
+            <p class="text-gray-400">Installs as a single binary with a one-line command. Sets up a systemd service for you.</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h4 class="text-xl font-semibold mb-2">Flexible & Extensible</h4>
+            <p class="text-gray-400">Monitor kernel messages, systemd units, or custom logs. Get notified via Slack, email, or webhooks.</p>
+        </div>
+    </div>
+    <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">How It Works with HoML</h3>
+    <div class="bg-gray-800 rounded-lg p-6">
+        <p class="text-gray-400 mb-4">Running Whistle AI with HoML gives you a powerful, private log analysis pipeline. Your logs are streamed to a local LLM running on the HoML server, which then intelligently decides if an alert needs to be sent. Configuration is dead simple. Just point Whistle AI to your HoML endpoint:</p>
+        <div class="relative">
+            <pre class="bg-gray-900 rounded-lg p-4 text-white overflow-x-auto"><code>whistle config llm --base_url http://localhost:8000/v1 --model your-local-model</code></pre>
+            <button class="copy-btn absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+                <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -15,12 +15,15 @@
                 <h3 class="text-lg font-semibold mb-2">Documentation</h3>
                 <a href="/docs/getting-started.html" class="px-4 py-2 rounded-lg {% if page == 'docs/getting-started.html' %}bg-gray-700 text-white{% else %}text-gray-400 hover:bg-gray-700 hover:text-white{% endif %}">Getting Started</a>
                 <a href="/docs/cli.html" class="px-4 py-2 rounded-lg {% if page == 'docs/cli.html' %}bg-gray-700 text-white{% else %}text-gray-400 hover:bg-gray-700 hover:text-white{% endif %}">CLI Reference</a>
+                <a href="/docs/whistle.html" class="px-4 py-2 rounded-lg {% if page == 'docs/whistle.html' %}bg-gray-700 text-white{% else %}text-gray-400 hover:bg-gray-700 hover:text-white{% endif %}">Whistle AI CLI</a>
             </nav>
         </div>
     </aside>
 
     <div class="p-10 md:ml-64">
-        {% block doc_content %}{% endblock %}
+        <div class="prose prose-invert max-w-none">
+            {% block doc_content %}{% endblock %}
+        </div>
     </div>
 </div>
 {% endblock %}

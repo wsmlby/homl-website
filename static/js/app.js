@@ -9,6 +9,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // AI Apps dropdown (Desktop)
+    const dropdownButton = document.getElementById('ai-apps-dropdown-button');
+    const dropdownMenu = document.getElementById('ai-apps-dropdown-menu');
+    if (dropdownButton && dropdownMenu) {
+        dropdownButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+    }
+
+    // AI Apps dropdown (Mobile)
+    const mobileDropdownButton = document.getElementById('mobile-ai-apps-dropdown-button');
+    const mobileDropdownMenu = document.getElementById('mobile-ai-apps-dropdown-menu');
+    if (mobileDropdownButton && mobileDropdownMenu) {
+        mobileDropdownButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+            mobileDropdownMenu.classList.toggle('hidden');
+        });
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (event) => {
+        if (dropdownMenu && !dropdownMenu.classList.contains('hidden') && !dropdownButton.contains(event.target)) {
+            dropdownMenu.classList.add('hidden');
+        }
+        if (mobileDropdownMenu && !mobileDropdownMenu.classList.contains('hidden') && !mobileDropdownButton.contains(event.target)) {
+            mobileDropdownMenu.classList.add('hidden');
+        }
+    });
+
     // Model search filtering
     const modelSearch = document.getElementById('model-search');
     

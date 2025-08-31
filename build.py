@@ -118,7 +118,7 @@ output_path = os.path.join(BLOGS_OUTPUT_DIR, 'index.html')
 with open(output_path, 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-# 8. Find and render all HTML templates from src to docs
+# 8. Find and render all HTML templates and Markdown docs from src to docs
 for root, dirs, files in os.walk(SRC_DIR):
     # Exclude 'templates', 'models' and 'blogs' directories from being processed directly
     if 'templates' in dirs:
@@ -127,6 +127,8 @@ for root, dirs, files in os.walk(SRC_DIR):
         dirs.remove('models')
     if 'blogs' in dirs:
         dirs.remove('blogs')
+
+    is_docs_dir = os.path.relpath(root, SRC_DIR).startswith('docs')
 
     for filename in files:
         if filename.endswith('.html'):
@@ -142,6 +144,51 @@ for root, dirs, files in os.walk(SRC_DIR):
             # Render the template
             template = env.get_template(template_path)
             html_content = template.render(page=template_path)
+            
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(html_content)
+        elif filename.endswith('.md') and is_docs_dir:
+            filepath = os.path.join(root, filename)
+            
+            # Determine output path
+            template_path = os.path.relpath(filepath, SRC_DIR)
+            output_path = os.path.join(OUTPUT_DIR, os.path.splitext(template_path)[0] + '.html')
+            os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+            with open(filepath, 'r', encoding='utf-8') as f:
+                doc = frontmatter.load(f)
+            
+            html_from_markdown = markdown2.markdown(
+                doc.content,
+                extras={
+                    'fenced-code-blocks': None,
+                    'tables': None,
+                    'html-classes': {
+                        'table': 'w-full my-4 text-left border-collapse shadow-lg rounded-lg overflow-hidden',
+                        'thead': 'bg-gray-700',
+                        'th': 'p-3 font-bold uppercase text-white border-b border-gray-600',
+                        'td': 'p-3 border-b border-gray-800',
+                        'tr': 'hover:bg-gray-800'
+                    }
+                }
+            )
+
+            # The old doc HTML files extended docs_base.html and defined a doc_content block.
+            # We can simulate that by creating a string template.
+            doc_template_str = """
+{% extends "templates/docs_base.html" %}
+
+{% block doc_content %}
+{{ content | safe }}
+{% endblock %}
+"""
+            doc_template = env.from_string(doc_template_str)
+            
+            # Render the template with markdown content and metadata from frontmatter
+            render_context = doc.metadata.copy()
+            render_context['content'] = html_from_markdown
+            
+            html_content = doc_template.render(render_context)
             
             with open(output_path, 'w', encoding='utf-8') as f:
                 f.write(html_content)
