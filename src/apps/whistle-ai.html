@@ -5,7 +5,7 @@
 <div class="max-w-4xl mx-auto text-center">
     <img src="/images/whistle.png" alt="Whistle AI Logo" class="mt-8 rounded-lg shadow-lg mx-auto" style="max-width: 200px;">
     <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Whistle AI</h2>
-    <p class="text-lg md:text-xl text-gray-400 mt-4">Your Smart Log Monitor, Powered by Local LLMs.</p>
+    <p class="text-lg md:text-xl text-gray-400 mt-4">A lightweight, intelligent log monitoring tool that uses local LLMs to analyze logs in real-time, identify critical events, and notify you before they become problems.</p>
     <div class="mt-8 flex flex-col md:flex-row justify-center items-center">
         <div class="relative w-full max-w-md">
             <pre class="bg-gray-800 rounded-lg p-4 text-white overflow-x-auto text-left text-sm"><code>curl -sSL https://raw.githubusercontent.com/wsmlby/whistle/refs/heads/main/install.sh | bash</code></pre>
@@ -16,6 +16,7 @@
                 <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 pointer-events-none transition-opacity duration-300">Copied!</span>
             </button>
         </div>
+        <a href="https://homl.dev/docs/whistle.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg mt-4 md:mt-0 md:ml-4">Documentation</a>
         <a href="https://github.com/wsmlby/whistle" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg text-lg mt-4 md:mt-0 md:ml-4">View on GitHub</a>
     </div>
 </div>
@@ -24,20 +25,28 @@
     <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">Key Features</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
         <div class="bg-gray-800 rounded-lg p-6">
-            <h4 class="text-xl font-semibold mb-2">AI-Powered Log Analysis</h4>
-            <p class="text-gray-400">Leverages LLMs to understand log context, reducing false positives and alert fatigue.</p>
+            <h4 class="text-xl font-semibold mb-2">Intelligent Log Analysis</h4>
+            <p class="text-gray-400">Instead of static rules, Whistle AI uses a LLM to understand log context, distinguishing between routine messages and critical events to reduce alert fatigue.</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h4 class="text-xl font-semibold mb-2">Adaptive Filtering</h4>
+            <p class="text-gray-400">The AI continuously and automatically maintains an ignore list of benign log patterns, improving accuracy and reducing false alarms over time.</p>
         </div>
         <div class="bg-gray-800 rounded-lg p-6">
             <h4 class="text-xl font-semibold mb-2">Private & Offline-First</h4>
-            <p class="text-gray-400">Integrates with HoML to run on your own hardware. Your logs never leave your network.</p>
+            <p class="text-gray-400">Integrates with HoML to run on your own hardware. Your logs and data never leave your network.</p>
         </div>
         <div class="bg-gray-800 rounded-lg p-6">
             <h4 class="text-xl font-semibold mb-2">Easy Deployment</h4>
-            <p class="text-gray-400">Installs as a single binary with a one-line command. Sets up a systemd service for you.</p>
+            <p class="text-gray-400">Installs as a single binary with a one-line command and automatically sets up its own systemd service for you.</p>
         </div>
         <div class="bg-gray-800 rounded-lg p-6">
-            <h4 class="text-xl font-semibold mb-2">Flexible & Extensible</h4>
-            <p class="text-gray-400">Monitor kernel messages, systemd units, or custom logs. Get notified via Slack, email, or webhooks.</p>
+            <h4 class="text-xl font-semibold mb-2">Flexible Monitoring</h4>
+            <p class="text-gray-400">Monitor kernel messages, specific systemd service units, or any custom log file. Whistle is designed to fit your monitoring needs.</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h4 class="text-xl font-semibold mb-2">Extensible Notifications</h4>
+            <p class="text-gray-400">Get notified via Slack, email, or custom webhooks. Whistle ensures you get critical alerts wherever you are.</p>
         </div>
     </div>
     <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">How It Works with HoML</h3>
