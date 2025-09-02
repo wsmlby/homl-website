@@ -1,0 +1,63 @@
+{
+  "name": "InternVL3.5",
+  "display_name": "InternVL3.5",
+  "description": "InternVL3.5, a new family of open-source multimodal models that significantly advances versatility, reasoning capability, and inference efficiency along the InternVL series.",
+  "source": "Hugging Face",
+  "params": ["--trust-remote-code"],
+  "variants": {
+    "1b": {
+      "display_name": "InternVL3.5-1b",
+      "parameters": "1B",
+      "type": "Base",
+      "model_id": "OpenGVLab/InternVL3_5-1B",
+      "quantization": "BF16",
+      "disk_space": "2 GB",
+      "gpu_memory": "2 GB"
+    },
+    "2b": {
+      "display_name": "InternVL3.5-2b",
+      "parameters": "2B",
+      "type": "Base",
+      "model_id": "OpenGVLab/InternVL3_5-2B",
+      "quantization": "BF16",
+      "disk_space": "4 GB",
+      "gpu_memory": "4 GB"
+    },
+    "4b": {
+      "display_name": "InternVL3.5-4b",
+      "parameters": "4B",
+      "type": "Base",
+      "model_id": "OpenGVLab/InternVL3_5-4B",
+      "quantization": "BF16",
+      "disk_space": "8 GB",
+      "gpu_memory": "8 GB"
+    },
+    "8b": {
+      "display_name": "InternVL3.5-8b",
+      "parameters": "8B",
+      "type": "Base",
+      "model_id": "OpenGVLab/InternVL3_5-8B",
+      "quantization": "BF16",
+      "disk_space": "16 GB",
+      "gpu_memory": "16 GB"
+    },
+    "14b": {
+      "display_name": "InternVL3.5-14b",
+      "parameters": "14B",
+      "type": "Base",
+      "model_id": "OpenGVLab/InternVL3_5-14B",
+      "quantization": "BF16",
+      "disk_space": "28 GB",
+      "gpu_memory": "28 GB"
+    },
+    "38b": {
+      "display_name": "InternVL3.5-38b",
+      "parameters": "38B",
+      "type": "Base",
+      "model_id": "OpenGVLab/InternVL3_5-38B",
+      "quantization": "BF16",
+      "disk_space": "56 GB",
+      "gpu_memory": "56 GB"
+    }
+  }
+}
