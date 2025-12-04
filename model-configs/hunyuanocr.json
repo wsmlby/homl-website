@@ -1,0 +1,18 @@
+{
+  "name": "hunyuanocr",
+  "display_name": "Hunyuan-OCR",
+  "description": "HunyuanOCR is an end-to-end OCR expert VLM developed by Tencent, featuring a lightweight 1B parameter design. It achieves state-of-the-art benchmarks in multilingual document parsing and excels in practical applications like text spotting, information extraction, video subtitle extraction, and photo translation.",
+  "source": "Hugging Face",
+  "params": ["--no-enable-prefix-caching", "--mm-processor-cache-gb", "1"],
+  "variants": {
+    "base": {
+      "display_name": "Hunyuan-OCR",
+      "parameters": "1B",
+      "type": "Base",
+      "model_id": "tencent/HunyuanOCR",
+      "quantization": "BF16",
+      "disk_space": "2 GB",
+      "gpu_memory": "2 GB"
+    }
+  }
+}
