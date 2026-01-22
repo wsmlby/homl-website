@@ -4,6 +4,11 @@ date: "2025-08-20"
 author: "The HoML Team"
 ---
 
+### Updates
+
+We've recently expanded our benchmark data! This post now includes a new data point for the **AMD 8700G (Radeon 780M iGPU)** running on ROCm 7.1.1 with PyTorch, achieving 128 FPS on single concurrency. Additionally, the 'Peak Performance: A Hardware Showdown' chart has been updated to display all data points in ascending order of Frames Per Second (FPS) for easier comparison.
+
+# Benchmarks
 When evaluating hardware for computer vision tasks, concrete data is often hard to come by. How much faster is a data center GPU like an H100 compared to a consumer-grade RTX 4000 for a real-world workload? Is it worth upgrading from a T4 to an L4? And what is the true performance gap between a GPU and a CPU?
 
 This post aims to provide clear, data-driven answers to these questions. We've benchmarked a range of modern NVIDIA GPUs and CPU configurations on a common object detection task: running a **YOLOv8s** model with an **image size of 320**. Our goal is to provide a valuable reference point that is missing from the public domain, helping you make more informed hardware decisions.
@@ -242,12 +247,18 @@ For CPU-bound inference, a properly configured **OpenVINO is the clear winner**,
 | PyTorch | 4 | 22.73 |
 | OpenVINO| 4 | 28.96 |
 
+### AMD 8700G (Radeon 780M iGPU)
+| Metric | Configuration | Inference FPS |
+|:--- |:--- |:---:|
+| PyTorch | AMD 8700G (Radeon 780M iGPU) on ROCm 7.1.1, single concurrency | 128 |
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1.1/dist/chart.xkcd.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     // Peak Performance Chart
-    const peakPerfLabels = ['CPU', 'T4', 'A10G', 'L4', 'RTX 4000', 'RTX 4060', 'H100'];
-    const peakPerfData = [28.96, 360, 463.46, 607.25, 920, 992, 6720];
+    const peakPerfLabels = ['CPU', '8700G (iGPU)', 'T4', 'A10G', 'L4', 'RTX 4000', 'RTX 4060', 'H100'];
+    const peakPerfData = [28.96, 128, 360, 463.46, 607.25, 920, 992, 6720];
 
     new chartXkcd.Bar(document.getElementById('peakPerformanceChart'), {
         title: 'Peak YOLOv8s Throughput (FPS)',
