@@ -6,7 +6,7 @@ author: "The HoML Team"
 
 ### Updates
 
-We've recently expanded our benchmark data! This post now includes a new data point for the **AMD 8700G (Radeon 780M iGPU)** running on ROCm 7.1.1 with PyTorch, achieving 128 FPS on single concurrency. Additionally, the 'Peak Performance: A Hardware Showdown' chart has been updated to display all data points in ascending order of Frames Per Second (FPS) for easier comparison.
+We've recently expanded our benchmark data! This post now includes new data points for the **AMD 8700G (Radeon 780M iGPU)** running on ROCm 7.1.1 with PyTorch, achieving 128 FPS on single concurrency, and the **Mac Mini M4 (10 Core GPU)**, achieving 272 FPS with 4 concurrent runs. Additionally, the 'Peak Performance: A Hardware Showdown' chart has been updated to display all data points in ascending order of Frames Per Second (FPS) for easier comparison.
 
 # Benchmarks
 When evaluating hardware for computer vision tasks, concrete data is often hard to come by. How much faster is a data center GPU like an H100 compared to a consumer-grade RTX 4000 for a real-world workload? Is it worth upgrading from a T4 to an L4? And what is the true performance gap between a GPU and a CPU?
@@ -21,7 +21,7 @@ Let's start with a simple question: what's the fastest hardware for a typical YO
 
 <svg id="peakPerformanceChart" class="my-8"></svg>
 <p class="text-center text-sm text-gray-600 -mt-4">
-    <strong>Note:</strong> Chart shows peak throughput. <strong>CPU:</strong> 4-vCPU w/ OpenVINO. <strong>RTX 4000:</strong> 4 concurrent runs. <strong>RTX 4060:</strong> 100W laptop GPU w/ 8 concurrent runs. <strong>H100:</strong> 32 concurrent runs. All GPUs use NVIDIA MPS.
+    <strong>Note:</strong> Chart shows peak throughput. <strong>CPU:</strong> 4-vCPU w/ OpenVINO. <strong>Mac Mini M4:</strong> 4 concurrent runs. <strong>RTX 4000:</strong> 4 concurrent runs. <strong>RTX 4060:</strong> 100W laptop GPU w/ 8 concurrent runs. <strong>H100:</strong> 32 concurrent runs. All GPUs use NVIDIA MPS.
 </p>
 
 The data reveals two crucial insights. First, even the slowest GPU we tested (the NVIDIA T4 on AWS g4dn) is **over 30 times faster** than a single vCPU running an optimized OpenVINO workload (360 FPS vs. ~11 FPS). Second, the data quantifies the massive performance gap between hardware tiers. A top-tier H100, when fully saturated with concurrent workloads, is **~6.7x faster** than a highly capable RTX 4060 and **~11x faster** than an L4, providing a clear picture of the performance you get for the money.
@@ -252,13 +252,18 @@ For CPU-bound inference, a properly configured **OpenVINO is the clear winner**,
 |:--- |:--- |:---:|
 | PyTorch | AMD 8700G (Radeon 780M iGPU) on ROCm 7.1.1, single concurrency | 128 |
 
+### Mac Mini M4
+| Metric | Configuration | Inference FPS |
+|:--- |:--- |:---:|
+| PyTorch | Mac Mini M4 (10 Core GPU), 4 concurrency | 272 |
+
 
 <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1.1/dist/chart.xkcd.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     // Peak Performance Chart
-    const peakPerfLabels = ['CPU', '8700G (iGPU)', 'T4', 'A10G', 'L4', 'RTX 4000', 'RTX 4060', 'H100'];
-    const peakPerfData = [28.96, 128, 360, 463.46, 607.25, 920, 992, 6720];
+    const peakPerfLabels = ['CPU', '8700G (iGPU)', 'Mac Mini M4', 'T4', 'A10G', 'L4', 'RTX 4000', 'RTX 4060', 'H100'];
+    const peakPerfData = [28.96, 128, 272, 360, 463.46, 607.25, 920, 992, 6720];
 
     new chartXkcd.Bar(document.getElementById('peakPerformanceChart'), {
         title: 'Peak YOLOv8s Throughput (FPS)',
